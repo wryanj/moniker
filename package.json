@@ -1,0 +1,49 @@
+{
+  "name": "moniker",
+  "homepage": "https://github.com/wryanj/moniker#readme",
+  "version": "1.0.0",
+  "description": "This is a passion project intended to help me continue to grow my knowledge regarding MERN and related technologies. The app is designed to facilitate in selecting names for babies.",
+  "main": "server.js",
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.7"
+  },
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "seed": "node seeds/index.js",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wryanj/moniker.git"
+  },
+  "keywords": [],
+  "author": "Ryan Johnson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wryanj/moniker/issues"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bootstrap": "^5.0.1",
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.1",
+    "mysql2": "^2.2.5",
+    "dayjs": "^1.10.4",
+    "dotenv": "^9.0.0",
+    "express": "^4.16.3",
+    "express-session": "^1.17.1",
+    "if-env": "^1.0.4",
+    "sequelize": "^6.6.2",
+    "react-bootstrap": "^1.6.0",
+    "react-icons": "^4.2.0",
+    "react-responsive": "^8.2.0",
+    "react-tiny-popover": "^6.0.5",
+    "react-tooltip": "^4.2.19"
+  }
+}
