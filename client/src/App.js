@@ -1,7 +1,7 @@
 /* -------------------------------------------------------------------------- */
 /*                             Import Dependencies                            */
 /* -------------------------------------------------------------------------- */
-  import logo from './logo.svg';
+  
 
 /* -------------------------------------------------------------------------- */
 /*                            Define App Component                            */
@@ -9,7 +9,7 @@
 
   function App() {
     return (
-      <div className="App">
+      <div className="App" data-component="App">
         Pages and Components Rendered Within App and Router
       </div>
     );
