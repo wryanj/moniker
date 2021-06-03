@@ -28,7 +28,7 @@
         store: new SequelizeStore({
             db: sequelize,
         }),
-        };
+    };
     app.use(session(sess));
 
     // Define middleware for use on ALL paths starting with '/' on homepage
@@ -37,7 +37,7 @@
 
     // Declare rule for serving up static assets (usually on heroku)
     if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
+        app.use(express.static("client/build"));
     }
 
     // Enable use of routes
@@ -48,7 +48,7 @@
 /* -------------------------------------------------------------------------- */
 
     sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () =>
-        console.log('Now listening on http://localhost:' + PORT)
-    );
+        app.listen(PORT, () =>
+            console.log('Now listening on http://localhost:' + PORT)
+        );
     });
