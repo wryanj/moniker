@@ -3,7 +3,7 @@
 /* -------------------------------------------------------------------------- */
     const express = require('express');
     const session = require('express-session');
-    const routes = require('./routes');
+    // const routes = require('./routes');
     const sequelize = require('./config/connection');
     const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -41,7 +41,7 @@
     }
 
     // Enable use of routes
-    app.use(routes); // Note- keep this below app.use for express or you will get Heroku issues
+    // app.use(routes); // Note- keep this below app.use for express or you will get Heroku issues
 
 /* -------------------------------------------------------------------------- */
 /*                         Sync DB and Start Listning                         */
