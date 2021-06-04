@@ -34,8 +34,12 @@ const sequelize = require('../config/connection');
                     isIn: [['Male', 'Female']],
                 },
             },
-            rank: {
-                type:DataTypes.STRING,
+            user_rank: {
+                type:DataTypes.INTEGER,
+                allowNull:true
+            },
+            family_rank: {
+                type:DataTypes.INTEGER,
                 allowNull:true
             }
         },
