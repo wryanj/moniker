@@ -17,32 +17,26 @@
                 primaryKey: true,
                 autoIncrement: true,
             },
-            comment: {
-                type: DataTypes.STRING,
-                allowNull: false,
-            },
             user_id: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
             },
             firstname_id: {
                 type: DataTypes.INTEGER,
-                allowNull: false,
+                allowNull: true,
             },
             middlename_id: {
                 type: DataTypes.INTEGER,
+                allowNull: true,
+            },
+            comment: {
+                type: DataTypes.STRING,
                 allowNull: false,
             },
             date_created: {
                 type: DataTypes.DATE,
                 allowNull: true,
                 defaultValue:DataTypes.NOW
-            },
-            date_modified: {
-                type: DataTypes.STRING,
-                validate: {
-                    isDate: true
-                },
             },
         },
         {

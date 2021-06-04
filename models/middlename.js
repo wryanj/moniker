@@ -1,8 +1,8 @@
 /* -------------------------------------------------------------------------- */
 /*                             Import Dependencies                            */
 /* -------------------------------------------------------------------------- */
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+    const { Model, DataTypes } = require('sequelize');
+    const sequelize = require('../config/connection');
 
 /* -------------------------------------------------------------------------- */
 /*                                Define Model                                */

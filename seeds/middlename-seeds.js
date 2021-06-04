@@ -13,7 +13,7 @@
         // Middlename 1
         {
             // id is created by sql
-            user_id: 1,
+            user_id: 1, // FK for user association
             name: 'Lucille',
             gender: 'Female',
             user_rank: 1,
@@ -23,7 +23,7 @@
         // Middlename 2
         {
             // id is created by sql
-            user_id: 2,
+            user_id: 2, // FK for user association
             name: 'Nicole',
             gender: 'Female',
             user_rank: 1,
@@ -33,7 +33,7 @@
         // Middlename 3
         {
             // id is created by sql
-            user_id: 1,
+            user_id: 1, // FK for user association
             name: 'Katherine',
             gender: 'Female',
             user_rank: 2,
