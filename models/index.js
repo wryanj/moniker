@@ -64,6 +64,12 @@
             onDelete: 'CASCADE'
         });
 
+      // Middlenames can have many comments made on them by different users
+      Middlename.hasMany(Comment, {
+        foreignKey:'middlename_id',
+        onDelete: 'CASCADE'
+    });
+
 /* -------------------------- Comment Associations -------------------------- */
 
     // Comments are created and posted by a specific user
@@ -78,7 +84,7 @@
             onDelete: 'CASCADE'
         });
 
-    // Comments can be made about a specific firstname
+    // Comments can be made about a specific middlename
         Comment.belongsTo(Middlename, {
             foreignKey: 'middlename_id',
             onDelete: 'CASCADE'
