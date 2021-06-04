@@ -41,7 +41,7 @@
                 type: DataTypes.STRING,
                 allowNull: false,
                 validate: {
-                    isIn: [['Admin', 'Employee', 'Client']],
+                    isIn: [['Husband', 'Wife', 'Guest']],
                 },
             },
             is_admin: {
@@ -69,6 +69,16 @@
             }
         },
         {
+            hooks: {
+                beforeCreate: async (newUserData) => {
+                    newUserData.password = await bcrypt.hash(newUserData.password, 10);
+                    return newUserData;
+                },
+                beforeUpdate: async (updatedUserData) => {
+                    updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+                    return updatedUserData;
+                },
+            },
             sequelize,
             timestamps: false,
             freezeTableName: true,
@@ -82,4 +92,4 @@
 /*                                Export Module                               */
 /* -------------------------------------------------------------------------- */
 
-module.exports = Family;
+    module.exports = User;
