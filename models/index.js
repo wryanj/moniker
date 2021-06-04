@@ -18,10 +18,6 @@
             onDelete: 'CASCADE'
         });
 
-    // A Family can have multiple firstnames (based on users who select them)?
-
-    // A Family can have multiple middlenames (based on users who select them)?
-
 /* ------------------------- User Associations ------------------------- */
     // Users belong to a single family
         User.belongsTo(Family, {
@@ -29,39 +25,64 @@
             onDelete: 'CASCADE'
         });
 
-    // Users and Firstnames (Users create or select firstnames they like)
+    // Users and Firstnames (Users create or select many firstnames they like)
         User.hasMany(Firstname, {
-            foreignKey: 'firstname_id',
+            foreignKey: 'user_id',
             onDelete: 'CASCADE',
         });
 
-        // Firstname.belongsTo(User, {
-        //     foreignKey: 'firstname_id',
-        //     onDelete: 'CASCADE',
-        // });
-    
-    // Users and Middlenames
+    // Users and Middlenames (Users create or select many middlenames they like)
         User.hasMany(Middlename, {
-            foreignKey: 'middlename_id',
+            foreignKey: 'user_id',
             onDelete: 'CASCADE',
         });
 
-        // Firstname.belongsTo(User, {
-        //     foreignKey: 'middlename_id',
-        //     onDelete: 'CASCADE',
-        // });
-
-    // Users and Comments
+    // Users and Comments (Users make many comments)
         User.hasMany(Comment, {
             foreignKey: 'user_id',
             onDelete: 'CASCADE'
-        })
+        });
 
 /* ------------------------- Firstname Associations ------------------------- */
+    // Firstnames are selected or created by a user
+        Firstname.belongsTo(User, {
+            foreignKey: 'user_id',
+            onDelete: 'CASCADE'
+        });
+
+    // Firstnames can have many comments made on them by different users
+        Firstname.hasMany(Comment, {
+            foreignKey:'firstname_id',
+            onDelete: 'CASCADE'
+        });
 
 /* ------------------------- Middlename Associations ------------------------ */
 
+    // Middlenames are selected or created by a user
+        Middlename.belongsTo(User, {
+            foreignKey: 'user_id',
+            onDelete: 'CASCADE'
+        });
+
 /* -------------------------- Comment Associations -------------------------- */
+
+    // Comments are created and posted by a specific user
+        Comment.belongsTo(User, {
+            foreignKey: 'user_id',
+            onDelete: 'CASCADE',
+        });
+
+    // Comments can be made about a specific firstname
+        Comment.belongsTo(Firstname, {
+            foreignKey: 'firstname_id',
+            onDelete: 'CASCADE'
+        });
+
+    // Comments can be made about a specific firstname
+        Comment.belongsTo(Middlename, {
+            foreignKey: 'middlename_id',
+            onDelete: 'CASCADE'
+        });
 
 /* -------------------------------------------------------------------------- */
 /*                               Export Modules                               */
