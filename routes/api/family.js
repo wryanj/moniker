@@ -1,29 +1,35 @@
 /* -------------------------------------------------------------------------- */
 /*                             Import Dependencies                            */
 /* -------------------------------------------------------------------------- */
-    const path = require("path");
+
     const router = require("express").Router();
-    const apiRoutes = require("./api");
+    const familyController = require("../../controllers/familyController");
 
 /* -------------------------------------------------------------------------- */
 /*                               Handle Routing                               */
 /* -------------------------------------------------------------------------- */
 
     /*
-        Any call that uses /api, direct to utilize
-        api routes defined in api folder
+        Calls methods based on type of axio call used on path
+        PATH - homeurl/api/family
     */
-    router.use('/api', apiRoutes);
 
+   // Use specified controller methods if it hits /api/family with get, post
+    router
+    .route("/")
+    .get(familyController.findAll)
+    .post(familyController.create);
+
+    // Used specified controller methods if it hits /api/family/id 
+    router
+    .route("/:id")
+    .get(familyController.findById)
     /*
-         If no api route is hit, send React App
+    .put(familyController.update)
+    .delete(familyController.remove
     */
-    router.use(function(req, res) {
-        res.sendFile(path.join(__dirname, "../client/build/index.html"));
-    });
 
 /* -------------------------------------------------------------------------- */
 /*                                Export Module                               */
 /* -------------------------------------------------------------------------- */
-
     module.exports = router;

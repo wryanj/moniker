@@ -1,29 +1,40 @@
 /* -------------------------------------------------------------------------- */
 /*                             Import Dependencies                            */
 /* -------------------------------------------------------------------------- */
-    const path = require("path");
+
     const router = require("express").Router();
-    const apiRoutes = require("./api");
+    const userController = require("../../controllers/userController");
 
 /* -------------------------------------------------------------------------- */
 /*                               Handle Routing                               */
 /* -------------------------------------------------------------------------- */
 
     /*
-        Any call that uses /api, direct to utilize
-        api routes defined in api folder
+        Calls methods based on type of axios call used on the path
+        PATH - homeurl/api/comment...
     */
-    router.use('/api', apiRoutes);
 
+    // Use specified controller methods if it hits /api/user
+    router
+    .route("/")
+    .get(userController.findAll)
+    .post(userController.create);
+
+    // Use specified controller methods if it hits /api/user/current
+    router
+    .route("/current")
+    .get(userController.findCurrentUser);
+
+    // Use specified controller methods if it hits /api/user/id
+    router
+    .route("/:id")
+    .get(userController.findById)
     /*
-         If no api route is hit, send React App
+    .put(familyController.update)
+    .delete(familyController.remove);
     */
-    router.use(function(req, res) {
-        res.sendFile(path.join(__dirname, "../client/build/index.html"));
-    });
 
 /* -------------------------------------------------------------------------- */
 /*                                Export Module                               */
 /* -------------------------------------------------------------------------- */
-
     module.exports = router;

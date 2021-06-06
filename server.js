@@ -40,7 +40,11 @@
         app.use(express.static("client/build"));
     }
 
-    // Enable use of routes
+    /*
+        Below is the first direction in a chain of route mounting. This calls code
+        on index within the routes directory, which further routes paths until
+        the get, put, post etc methods are reached in the controllers
+    */
     // app.use(routes); // Note- keep this below app.use for express or you will get Heroku issues
 
 /* -------------------------------------------------------------------------- */

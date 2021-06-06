@@ -1,29 +1,27 @@
 /* -------------------------------------------------------------------------- */
 /*                             Import Dependencies                            */
 /* -------------------------------------------------------------------------- */
-    const path = require("path");
+
     const router = require("express").Router();
-    const apiRoutes = require("./api");
+    const firstnameController = require("../../controllers/firstnameController");
 
 /* -------------------------------------------------------------------------- */
 /*                               Handle Routing                               */
 /* -------------------------------------------------------------------------- */
 
-    /*
-        Any call that uses /api, direct to utilize
-        api routes defined in api folder
-    */
-    router.use('/api', apiRoutes);
+    // Matches with "/api/firstname"
+    router
+    .route("/")
+    .get(firstnameController.findAll)
+    .post(firstnameController.create);
 
-    /*
-         If no api route is hit, send React App
-    */
-    router.use(function(req, res) {
-        res.sendFile(path.join(__dirname, "../client/build/index.html"));
-    });
+    // Matches with "/api/firstname/:id"
+    router
+    .route("/:id")
+    .get(firstnameController.findById)
+    .delete(firstnameController.remove);
 
 /* -------------------------------------------------------------------------- */
 /*                                Export Module                               */
 /* -------------------------------------------------------------------------- */
-
-    module.exports = router;
+    module.exports = router;    
