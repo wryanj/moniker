@@ -3,7 +3,7 @@
 /* -------------------------------------------------------------------------- */
     const express = require('express');
     const session = require('express-session');
-    // const routes = require('./routes');
+    const routes = require('./routes');
     const sequelize = require('./config/connection');
     const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -44,8 +44,9 @@
         Below is the first direction in a chain of route mounting. This calls code
         on index within the routes directory, which further routes paths until
         the get, put, post etc methods are reached in the controllers
+        Note- keep this below app.use for express or you will get Heroku issues
     */
-    // app.use(routes); // Note- keep this below app.use for express or you will get Heroku issues
+    app.use(routes); 
 
 /* -------------------------------------------------------------------------- */
 /*                         Sync DB and Start Listning                         */

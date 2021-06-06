@@ -24,7 +24,7 @@
     router
     .route("/:id")
     .get(commentController.findById)
-    .delete(familyController.remove);
+    .delete(commentController.remove);
     /*
     .put(familyController.update)
     */
