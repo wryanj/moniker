@@ -14,14 +14,14 @@
 /* --------------------------- Family Associations -------------------------- */
     // A Family can have multiple users
         Family.hasMany(User, {
-            foreignKey:'user_id',
+            foreignKey:'family_id',
             onDelete: 'CASCADE'
         });
 
 /* ------------------------- User Associations ------------------------- */
     // Users belong to a single family
         User.belongsTo(Family, {
-            foreignKey: 'user_id',
+            foreignKey: 'family_id',
             onDelete: 'CASCADE'
         });
 
