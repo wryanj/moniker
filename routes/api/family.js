@@ -24,6 +24,7 @@
     router
     .route("/:id")
     .get(familyController.findById)
+    .delete(familyController.remove);
     /*
     .put(familyController.update)
     .delete(familyController.remove

@@ -29,9 +29,9 @@
     router
     .route("/:id")
     .get(userController.findById)
+    .delete(userController.remove);
     /*
     .put(familyController.update)
-    .delete(familyController.remove);
     */
 
 /* -------------------------------------------------------------------------- */

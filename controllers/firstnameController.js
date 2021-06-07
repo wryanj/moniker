@@ -60,7 +60,7 @@
                   id: req.params.id
                 }
               });
-              res.status(200).json(ticketData);
+              res.status(200).json({message: "item deleted successfully!"});
             } 
             catch (err) {
               console.log(err);

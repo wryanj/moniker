@@ -32,12 +32,7 @@
             comment: {
                 type: DataTypes.STRING,
                 allowNull: false,
-            },
-            date_created: {
-                type: DataTypes.DATE,
-                allowNull: true,
-                defaultValue:DataTypes.NOW
-            },
+            }
         },
         {
             sequelize,

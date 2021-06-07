@@ -68,6 +68,24 @@
               res.status(422).json(err);
             }
           },
+
+        /* ----------------------------- Delete A Family ---------------------------- */
+
+          remove: async function (req, res) {
+            try {
+              const familyData = await Family.destroy({
+                where: {
+                  id: req.params.id
+                }
+              });
+              res.status(200).json({message: "item deleted successfully!"});
+            } 
+            catch (err) {
+              console.log(err);
+              res.status(422).json(err);
+            }
+          }
+
     }
 
 
