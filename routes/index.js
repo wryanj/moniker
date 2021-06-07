@@ -10,8 +10,9 @@
 /* -------------------------------------------------------------------------- */
 
     /*
-        Any call that uses /api, direct to utilize
-        api routes defined in api folder
+        Any call that uses /api, direct to utilize api routes defined in
+        the api folder. Directed here from app.use routes in the server.js
+        PATH - homeurl/...
     */
     router.use('/api', apiRoutes);
 

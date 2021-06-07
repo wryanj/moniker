@@ -22,7 +22,7 @@
             name: 'Steers'
         },
 
-        // Family 2
+        // Family 3
         {
             // id is created by sql
             name: 'Latty'

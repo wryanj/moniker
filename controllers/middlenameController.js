@@ -15,7 +15,7 @@ const {Middlename} = require('../models');
         findAll: async function (req, res) {
             try {
               const middlenameData = await Middlename.findAll({})
-              res.status(200).json(familyData);
+              res.status(200).json(middlenameData);
             } 
             catch (err) {
               console.log(err);
@@ -30,7 +30,7 @@ const {Middlename} = require('../models');
               const middlenameData = await Middlename.findOne({
                 where: { id: req.params.id},
               });
-              res.status(200).json(userData);
+              res.status(200).json(middlenameData);
             } 
             catch (err) {
               console.log(err);
@@ -43,7 +43,7 @@ const {Middlename} = require('../models');
         create: async function (req, res) {
             try {
               const middlenameData = await Middlename.create(req.body);
-              res.status(200).json(orgData);
+              res.status(200).json(middlenameData);
             } 
             catch (err) {
               console.log(err);
@@ -60,7 +60,7 @@ const {Middlename} = require('../models');
                   id: req.params.id
                 }
               });
-              res.status(200).json(ticketData);
+              res.status(200).json({message: "item deleted successfully!"});
             } 
             catch (err) {
               console.log(err);

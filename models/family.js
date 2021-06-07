@@ -17,6 +17,7 @@
                 primaryKey: true,
                 autoIncrement: true,
             },
+            // Should be single string name, last name ex 'Johnson'
             name: {
                 type: DataTypes.STRING,
                 allowNull: false,

@@ -9,13 +9,18 @@
 /*                               Handle Routing                               */
 /* -------------------------------------------------------------------------- */
 
-    // Matches with "/api/firstname"
+    /*
+        Calls methods based on type of axios call used on the path
+        PATH - homeurl/api/firstname...
+    */
+
+    // Use specified controller methods if it hits /api/firstname
     router
     .route("/")
     .get(firstnameController.findAll)
     .post(firstnameController.create);
 
-    // Matches with "/api/firstname/:id"
+    // Use specified controller methods if it hits /api/firstname/id
     router
     .route("/:id")
     .get(firstnameController.findById)

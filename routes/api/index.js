@@ -17,6 +17,7 @@
         (e.x /api/family) use routes defined in js within this directory. 
         Routing is directed here after /api is detected via code on index
         within the routes directory
+        PATH - homeurl/api...
     */
 
     router.use("/family", familyRoutes);

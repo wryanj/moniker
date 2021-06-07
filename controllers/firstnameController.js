@@ -15,7 +15,7 @@
         findAll: async function (req, res) {
             try {
               const firstnameData = await Firstname.findAll({})
-              res.status(200).json(familyData);
+              res.status(200).json(firstnameData);
             } 
             catch (err) {
               console.log(err);
@@ -30,7 +30,7 @@
               const firstnameData = await Firstname.findOne({
                 where: { id: req.params.id},
               });
-              res.status(200).json(userData);
+              res.status(200).json(firstnameData);
             } 
             catch (err) {
               console.log(err);
@@ -43,7 +43,7 @@
         create: async function (req, res) {
             try {
               const firstnameData = await Firstname.create(req.body);
-              res.status(200).json(orgData);
+              res.status(200).json(firstnameData);
             } 
             catch (err) {
               console.log(err);
