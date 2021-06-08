@@ -24,10 +24,10 @@
     router
     .route("/:id")
     .get(commentController.findById)
+    .put(commentController.update)
     .delete(commentController.remove);
-    /*
-    .put(familyController.update)
-    */
+   
+    
 
 /* -------------------------------------------------------------------------- */
 /*                                Export Module                               */
