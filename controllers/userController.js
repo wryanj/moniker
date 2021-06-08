@@ -2,7 +2,7 @@
 /*                             Import Dependencies                            */
 /* -------------------------------------------------------------------------- */
 
-    const {User} = require('../models');
+    const {User, Firstname, Middlename, Family} = require('../models');
    
 /* -------------------------------------------------------------------------- */
 /*                    Define Methods For User Controller                      */
@@ -13,7 +13,22 @@
 
         findAll: async function (req, res) {
             try {
-              const userData = await User.findAll({})
+              const userData = await User.findAll({
+                include: [
+                  {
+                    model: Family,
+                    attributes: ["name"]
+                  },
+                  {
+                    model: Firstname,
+                    // as: 'LikedFirstnames', - If I want to use this, need to update associations (see divvy)
+                  },
+                  {
+                    model: Middlename,
+                    // as: 'LikedMiddlenames', - If I want to use this, need to update associations (see divvy)
+                  }
+                ],
+              })
               res.status(200).json(userData);
             } 
             catch (err) {
