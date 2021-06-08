@@ -21,12 +21,12 @@
                   },
                   {
                     model: Firstname,
-                    attributes: ["id", "name", "gender"],
+                    attributes: ["id", "name", "gender", "user_rank"],
                     as: 'likedFirstnames'
                   },
                   {
                     model: Middlename,
-                    attributes: ["id", "name", "gender"],
+                    attributes: ["id", "name", "gender", "user_rank"],
                     as: 'likedMiddlenames'
                   }
                 ],
@@ -45,6 +45,22 @@
             try {
               const userData = await User.findOne({
                 where: { id: req.session.user_id },
+                include: [
+                  {
+                    model: Family,
+                    attributes: ["name"]
+                  },
+                  {
+                    model: Firstname,
+                    attributes: ["id", "name", "gender", "user_rank"],
+                    as: 'likedFirstnames'
+                  },
+                  {
+                    model: Middlename,
+                    attributes: ["id", "name", "gender", "user_rank"],
+                    as: 'likedMiddlenames'
+                  }
+                ],
               });
               res.status(200).json(userData.dataValues);
             } 
@@ -60,6 +76,22 @@
             try {
               const userData = await User.findOne({
                 where: { id: req.params.id },
+                include: [
+                  {
+                    model: Family,
+                    attributes: ["name"]
+                  },
+                  {
+                    model: Firstname,
+                    attributes: ["id", "name", "gender", "user_rank"],
+                    as: 'likedFirstnames'
+                  },
+                  {
+                    model: Middlename,
+                    attributes: ["id", "name", "gender", "user_rank"],
+                    as: 'likedMiddlenames'
+                  }
+                ],
               });
               res.status(200).json(userData);
             } 

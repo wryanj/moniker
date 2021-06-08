@@ -24,7 +24,9 @@
     router
     .route("/:id")
     .get(firstnameController.findById)
+    .put(firstnameController.update)
     .delete(firstnameController.remove);
+
 
 /* -------------------------------------------------------------------------- */
 /*                                Export Module                               */

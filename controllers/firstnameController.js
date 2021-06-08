@@ -51,6 +51,22 @@
             }
           },
 
+    /* --------------------------- Edit Firstname Info -------------------------- */
+
+        update: async function (req, res) {
+          try {
+            const firstnameData = await Firstname.update(req.body, {
+              where: {
+                id: req.params.id
+              }
+            });
+            res.status(200).json(firstnameData);
+          } catch (err) {
+            console.log(err);
+            res.status(422).json(err);
+          }
+        },
+
     /* --------------------------- Delete a firstname --------------------------- */
 
         remove: async function (req, res) {
