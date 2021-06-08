@@ -29,12 +29,14 @@
         User.hasMany(Firstname, {
             foreignKey: 'user_id',
             onDelete: 'CASCADE',
+            as: "likedFirstnames"
         });
 
     // Users and Middlenames (Users create or select many middlenames they like)
         User.hasMany(Middlename, {
             foreignKey: 'user_id',
             onDelete: 'CASCADE',
+            as: "likedMiddlenames"
         });
 
     // Users and Comments (Users make many comments)
@@ -47,7 +49,8 @@
     // Firstnames are selected or created by a user
         Firstname.belongsTo(User, {
             foreignKey: 'user_id',
-            onDelete: 'CASCADE'
+            onDelete: 'CASCADE',
+            as: "likedFirstnames"
         });
 
     // Firstnames can have many comments made on them by different users
@@ -61,7 +64,8 @@
     // Middlenames are selected or created by a user
         Middlename.belongsTo(User, {
             foreignKey: 'user_id',
-            onDelete: 'CASCADE'
+            onDelete: 'CASCADE',
+            as: "likedMiddlenames"
         });
 
     // Middlenames can have many comments made on them by different users

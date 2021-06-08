@@ -21,12 +21,13 @@
                   },
                   {
                     model: Firstname,
-                    attributes: ["id", "name", "gender"]
-                    // as: 'LikedFirstnames', - If I want to use this, need to update associations (see divvy)
+                    attributes: ["id", "name", "gender"],
+                    as: 'likedFirstnames'
                   },
                   {
                     model: Middlename,
-                    // as: 'LikedMiddlenames', - If I want to use this, need to update associations (see divvy)
+                    attributes: ["id", "name", "gender"],
+                    as: 'likedMiddlenames'
                   }
                 ],
               })
