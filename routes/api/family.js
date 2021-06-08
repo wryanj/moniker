@@ -16,19 +16,18 @@
 
    // Use specified controller methods if it hits /api/family with get, post
     router
-    .route("/")
-    .get(familyController.findAll)
-    .post(familyController.create);
+        .route("/")
+        .get(familyController.findAll)
+        .post(familyController.create);
 
     // Used specified controller methods if it hits /api/family/id 
     router
-    .route("/:id")
-    .get(familyController.findById)
-    .delete(familyController.remove);
-    /*
-    .put(familyController.update)
-    .delete(familyController.remove
-    */
+        .route("/:id")
+        .get(familyController.findById)
+        .delete(familyController.remove)
+        .put(familyController.update)
+        .delete(familyController.remove);
+    
 
 /* -------------------------------------------------------------------------- */
 /*                                Export Module                               */

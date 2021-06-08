@@ -29,11 +29,9 @@
     router
     .route("/:id")
     .get(userController.findById)
+    .put(userController.update)
     .delete(userController.remove);
-    /*
-    .put(familyController.update)
-    */
-
+    
 /* -------------------------------------------------------------------------- */
 /*                                Export Module                               */
 /* -------------------------------------------------------------------------- */

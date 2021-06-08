@@ -69,6 +69,22 @@
             }
           },
 
+        /* --------------------------- Edit Family Info -------------------------- */
+
+          update: async function (req, res) {
+            try {
+              const familyData = await Family.update(req.body, {
+                where: {
+                  id: req.params.id
+                }
+              });
+              res.status(200).json(familyData);
+            } catch (err) {
+              console.log(err);
+              res.status(422).json(err);
+            }
+          },
+
         /* ----------------------------- Delete A Family ---------------------------- */
 
           remove: async function (req, res) {

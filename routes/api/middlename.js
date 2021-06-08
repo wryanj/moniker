@@ -24,6 +24,7 @@
     router
     .route("/:id")
     .get(middlenameController.findById)
+    .put(middlenameController.update)
     .delete(middlenameController.remove);
 
 /* -------------------------------------------------------------------------- */

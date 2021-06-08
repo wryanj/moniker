@@ -51,6 +51,22 @@ const {Middlename} = require('../models');
             }
           },
 
+    /* --------------------------- Edit Firstname Info -------------------------- */
+
+        update: async function (req, res) {
+          try {
+            const middlenameData = await Middlename.update(req.body, {
+              where: {
+                id: req.params.id
+              }
+            });
+            res.status(200).json(middlenameData);
+          } catch (err) {
+            console.log(err);
+            res.status(422).json(err);
+          }
+        },
+
     /* --------------------------- Delete a middlename --------------------------- */
 
         remove: async function (req, res) {
