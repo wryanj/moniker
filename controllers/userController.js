@@ -2,7 +2,7 @@
 /*                             Import Dependencies                            */
 /* -------------------------------------------------------------------------- */
 
-    const {User, Firstname, Middlename, Family} = require('../models');
+    const {User, Firstname, Middlename, Family, Fullname} = require('../models');
    
 /* -------------------------------------------------------------------------- */
 /*                    Define Methods For User Controller                      */
@@ -28,6 +28,11 @@
                     model: Middlename,
                     attributes: ["id", "name", "gender", "user_rank"],
                     as: 'userLikedMiddlenames'
+                  },
+                  {
+                    model: Fullname,
+                    attributes: ["id", "name", "gender", "user_rank"],
+                    as: "userLikedFullnames"
                   }
                 ],
               })
@@ -59,6 +64,11 @@
                     model: Middlename,
                     attributes: ["id", "name", "gender", "user_rank"],
                     as: 'userLikedMiddlenames'
+                  },
+                  {
+                    model: Fullname,
+                    attributes: ["id", "name", "gender", "user_rank"],
+                    as: "userLikedFullnames"
                   }
                 ],
               });
@@ -90,6 +100,11 @@
                     model: Middlename,
                     attributes: ["id", "name", "gender", "user_rank"],
                     as: 'userLikedMiddlenames'
+                  },
+                  {
+                    model: Fullname,
+                    attributes: ["id", "name", "gender", "user_rank"],
+                    as: "userLikedFullnames"
                   }
                 ],
               });

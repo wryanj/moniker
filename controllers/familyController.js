@@ -2,7 +2,7 @@
 /*                             Import Dependencies                            */
 /* -------------------------------------------------------------------------- */
 
-    const {Family} = require('../models');
+    const {Family, Firstname, Middlename, Fullname, User} = require('../models');
    
 /* -------------------------------------------------------------------------- */
 /*                    Define Methods For Family Controller                    */
@@ -13,7 +13,13 @@
 
           findAll: async function (req, res) {
             try {
-              const familyData = await Family.findAll({})
+              const familyData = await Family.findAll({
+                include: [
+                  {
+                    model: User
+                  }
+                ]
+              })
               res.status(200).json(familyData);
             } 
             catch (err) {
@@ -28,6 +34,23 @@
             try {
               const familyData = await Family.findOne({
                 where: { id: req.params.id },
+                include: [
+                  {
+                    model: Firstname,
+                    attributes: ["id", "name", "gender", "family_rank"],
+                    as: 'familyLikedFirstnames'
+                  },
+                  {
+                    model: Middlename,
+                    attributes: ["id", "name", "gender", "family_rank"],
+                    as: 'familyLikedMiddlenames'
+                  },
+                  {
+                    model: Fullname,
+                    attributes: ["id", "name", "gender", "family_rank"],
+                    as: "familyLikedFullnames"
+                  },
+                ],
               });
               res.status(200).json(familyData);
             } 
@@ -39,12 +62,29 @@
 
         /* --------------------------- Get a current family by id --------------------- */
 
-            /*
+        /*
 
             findById: async function (req, res) {
               try {
                 const familyData = await Family.findOne({
                   where: { id: req.session.family_id }, // Figure out best way to do this. 
+                  include: [
+                    {
+                      model: Firstname,
+                      attributes: ["id", "name", "gender", "family_rank"],
+                      as: 'familyLikedFirstnames'
+                    },
+                    {
+                      model: Middlename,
+                      attributes: ["id", "name", "gender", "family_rank"],
+                      as: 'familyLikedMiddlenames'
+                    },
+                    {
+                      model: Fullname,
+                      attributes: ["id", "name", "gender", "family_rank"],
+                      as: "familyLikedFullnames"
+                    },
+                  ],
                 });
                 res.status(200).json(familyData);
               } 
@@ -54,7 +94,7 @@
               }
             },
 
-          */
+        */
 
         /* ----------------------------- Create a family ---------------------------- */
         
