@@ -14,6 +14,7 @@
         {
             // id is created by sql
             user_id: 1, // FK for user association
+            family_id: 1, // FK for family associations
             name: 'Lucille',
             gender: 'Female',
             user_rank: 1,
@@ -24,6 +25,7 @@
         {
             // id is created by sql
             user_id: 2, // FK for user association
+            family_id: 1, // FK for family associations
             name: 'Nicole',
             gender: 'Female',
             user_rank: 1,
@@ -34,6 +36,7 @@
         {
             // id is created by sql
             user_id: 1, // FK for user association
+            family_id: 1, // FK for family associations
             name: 'Katherine',
             gender: 'Female',
             user_rank: 2,

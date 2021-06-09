@@ -22,6 +22,11 @@
                 type: DataTypes.INTEGER,
                 allowNull:false
             },
+            // If accepted after promotion by user, will be a family liked fullname
+            family_id: {
+                type: DataTypes.INTEGER,
+                allowNull:true
+            },
             // The actual firstname
             name: {
                 type: DataTypes.STRING,
