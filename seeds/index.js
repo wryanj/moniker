@@ -37,6 +37,9 @@
     
         await seedMiddlename();
         console.log('\n----- MIDDLENAMES SEEDED -----\n');
+
+        await seedFullname();
+        console.log('\n----- FULLNAMES SEEDED -----\n');
     
         await seedComment();
         console.log('\n----- COMMENTS SEEDED -----\n');

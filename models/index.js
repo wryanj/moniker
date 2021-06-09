@@ -5,6 +5,7 @@
     const User = require('./user');
     const Firstname = require('./firstname');
     const Middlename = require('./middlename');
+    const Fullname = require("./fullname");
     const Comment = require('./comment');
 
 /* -------------------------------------------------------------------------- */
@@ -37,6 +38,13 @@
             foreignKey: 'user_id',
             onDelete: 'CASCADE',
             as: "likedMiddlenames"
+        });
+
+    // Users and Middlenames (Users create or select many middlenames they like)
+        User.hasMany(Fullname, {
+            foreignKey: 'user_id',
+            onDelete: 'CASCADE',
+            as: "likedFullnames"
         });
 
     // Users and Comments (Users make many comments)
@@ -74,6 +82,21 @@
         onDelete: 'CASCADE'
         });
 
+/* ------------------------- Fullname Associations --------------------------- */
+
+    // Fullnames are created by users by mixing first and middle
+    Fullname.belongsTo(User, {
+        foreignKey: 'user_id',
+        onDelete: 'CASCADE',
+        as: "likedFullnames"
+    });
+
+    // Fullnames can have many comments made on them by different users
+    Fullname.hasMany(Comment, {
+        foreignKey:'fullname_id',
+        onDelete: 'CASCADE'
+    });
+
 /* -------------------------- Comment Associations -------------------------- */
 
     // Comments are created and posted by a specific user
@@ -91,6 +114,12 @@
     // Comments can be made about a specific middlename
         Comment.belongsTo(Middlename, {
             foreignKey: 'middlename_id',
+            onDelete: 'CASCADE'
+        });
+    
+    // Comments can be made about a specific middlename
+        Comment.belongsTo(Fullname, {
+            foreignKey: 'fullname_id',
             onDelete: 'CASCADE'
         });
 

@@ -2,7 +2,7 @@
 /*                             Import Dependencies                            */
 /* -------------------------------------------------------------------------- */
 
-const {Middlename} = require('../models');
+    const {Middlename} = require('../models');
    
 /* -------------------------------------------------------------------------- */
 /*                Define Methods For Middlename Controller                    */
