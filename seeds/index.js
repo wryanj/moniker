@@ -7,6 +7,7 @@
     const seedUser = require('./user-seeds');
     const seedFirstname = require('./firstname-seeds');
     const seedMiddlename = require('./middlename-seeds');
+    const seedFullname = require('./fullname-seeds');
     const seedComment = require('./comment-seeds');
 
 /* ------------------- Import database connection instance ------------------ */

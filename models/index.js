@@ -132,6 +132,7 @@
         User,
         Firstname,
         Middlename,
+        Fullname,
         Comment
     };
 
