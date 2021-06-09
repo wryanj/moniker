@@ -85,17 +85,17 @@
 /* ------------------------- Fullname Associations --------------------------- */
 
     // Fullnames are created by users by mixing first and middle
-    Fullname.belongsTo(User, {
-        foreignKey: 'user_id',
-        onDelete: 'CASCADE',
-        as: "likedFullnames"
-    });
+        Fullname.belongsTo(User, {
+            foreignKey: 'user_id',
+            onDelete: 'CASCADE',
+            as: "likedFullnames"
+        });
 
     // Fullnames can have many comments made on them by different users
-    Fullname.hasMany(Comment, {
-        foreignKey:'fullname_id',
-        onDelete: 'CASCADE'
-    });
+        Fullname.hasMany(Comment, {
+            foreignKey:'fullname_id',
+            onDelete: 'CASCADE'
+        });
 
 /* -------------------------- Comment Associations -------------------------- */
 

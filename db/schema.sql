@@ -10,5 +10,6 @@
     SELECT * FROM user;
     SELECT * FROM firstname;
     SELECT * FROM middlename;
+    SELECT * FROM fullname;
     SELECT * FROM comment;
     SELECT * FROM session;
