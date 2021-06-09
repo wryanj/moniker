@@ -22,12 +22,12 @@
                   {
                     model: Firstname,
                     attributes: ["id", "name", "gender", "user_rank"],
-                    as: 'likedFirstnames'
+                    as: 'userLikedFirstnames'
                   },
                   {
                     model: Middlename,
                     attributes: ["id", "name", "gender", "user_rank"],
-                    as: 'likedMiddlenames'
+                    as: 'userLikedMiddlenames'
                   }
                 ],
               })
@@ -53,12 +53,12 @@
                   {
                     model: Firstname,
                     attributes: ["id", "name", "gender", "user_rank"],
-                    as: 'likedFirstnames'
+                    as: 'userLikedFirstnames'
                   },
                   {
                     model: Middlename,
                     attributes: ["id", "name", "gender", "user_rank"],
-                    as: 'likedMiddlenames'
+                    as: 'userLikedMiddlenames'
                   }
                 ],
               });
@@ -84,12 +84,12 @@
                   {
                     model: Firstname,
                     attributes: ["id", "name", "gender", "user_rank"],
-                    as: 'likedFirstnames'
+                    as: 'userLikedFirstnames'
                   },
                   {
                     model: Middlename,
                     attributes: ["id", "name", "gender", "user_rank"],
-                    as: 'likedMiddlenames'
+                    as: 'userLikedMiddlenames'
                   }
                 ],
               });

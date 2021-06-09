@@ -51,21 +51,21 @@
         User.hasMany(Firstname, {
             foreignKey: 'user_id',
             onDelete: 'CASCADE',
-            as: "likedFirstnames"
+            as: "userLikedFirstnames"
         });
 
     // Users and Middlenames (Users create or select many middlenames they like)
         User.hasMany(Middlename, {
             foreignKey: 'user_id',
             onDelete: 'CASCADE',
-            as: "likedMiddlenames"
+            as: "userLikedMiddlenames"
         });
 
     // Users and Middlenames (Users create or select many middlenames they like)
         User.hasMany(Fullname, {
             foreignKey: 'user_id',
             onDelete: 'CASCADE',
-            as: "likedFullnames"
+            as: "userLikedFullnames"
         });
 
     // Users and Comments (Users make many comments)
@@ -87,7 +87,7 @@
         Firstname.belongsTo(User, {
             foreignKey: 'user_id',
             onDelete: 'CASCADE',
-            as: "likedFirstnames"
+            as: "userLikedFirstnames"
         });
 
     // Firstnames can have many comments made on them by different users
@@ -109,7 +109,7 @@
         Middlename.belongsTo(User, {
             foreignKey: 'user_id',
             onDelete: 'CASCADE',
-            as: "likedMiddlenames"
+            as: "userLikedMiddlenames"
         });
 
     // Middlenames can have many comments made on them by different users
@@ -131,7 +131,7 @@
         Fullname.belongsTo(User, {
             foreignKey: 'user_id',
             onDelete: 'CASCADE',
-            as: "likedFullnames"
+            as: "userLikedFullnames"
         });
 
     // Fullnames can have many comments made on them by different users
