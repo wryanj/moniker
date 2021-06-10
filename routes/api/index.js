@@ -6,6 +6,7 @@
     const userRoutes = require("./user");
     const firstnameRoutes = require("./firstname");
     const middlenameRoutes = require("./middlename");
+    const fullnameRoutes = require('./fullname');
     const commentRoutes = require("./comment");
 
 /* -------------------------------------------------------------------------- */
@@ -24,6 +25,7 @@
     router.use("/user", userRoutes);
     router.use("/firstname", firstnameRoutes);
     router.use("/middlename", middlenameRoutes);
+    router.use("/fullname", fullnameRoutes);
     router.use("/comment", commentRoutes);
 
 /* -------------------------------------------------------------------------- */
