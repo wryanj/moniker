@@ -1,27 +1,37 @@
 /* -------------------------------------------------------------------------- */
 /*                             Import Dependencies                            */
 /* -------------------------------------------------------------------------- */
-  import React, { useEffect, useState } from 'react';
-  import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-  import Wrapper from './components/Wrapper';
-  import MyNames from './pages/MyNames';
- 
+
+    import React from "react";
+    import Row from "../Row";
+    import Col from "../Column"
+    import Nav from "../Navbar";
+    
 /* -------------------------------------------------------------------------- */
-/*                            Define App Component                            */
+/*                              Define Component                              */
 /* -------------------------------------------------------------------------- */
 
-  function App() {
+
+function Wrapper(props) {
+
     return (
-      <>
-        <Wrapper>
-        <MyNames/>
-        </Wrapper>
-        
-      </>
+        <main className="my-0" data-component="Wrapper">
+            <Row>
+               <Col>
+                    <Nav/>
+               </Col>
+               <Col>
+                    {props.children}
+               </Col>
+            </Row>
+        </main>
     );
-  }
+}
 
 /* -------------------------------------------------------------------------- */
 /*                              Export Component                              */
 /* -------------------------------------------------------------------------- */
-  export default App;
+    /*
+        Exported for use in app.js
+    */
+    export default Wrapper;
