@@ -17,11 +17,11 @@
     /* ---------------------------- Component Render ---------------------------- */
         return (
             <Container className=" mt-3 mx-3">
-            <Row>
-                <Col>
-                        Homepage
-                </Col>
-            </Row>
+                <Row>
+                    <Col>
+                            MyNames Page
+                    </Col>
+                </Row>
             </Container>
         );
     }

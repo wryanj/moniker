@@ -3,7 +3,10 @@
 /* -------------------------------------------------------------------------- */
   import React, { useEffect, useState } from 'react';
   import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-  import Wrapper from './components/Wrapper';
+  import Header from './components/Header';
+  import Footer from './components/Footer';
+  import Main from './components/Main';
+  import Nav from './components/Navbar';
   import MyNames from './pages/MyNames';
  
 /* -------------------------------------------------------------------------- */
@@ -13,10 +16,15 @@
   function App() {
     return (
       <>
-        <Wrapper>
-        <MyNames/>
-        </Wrapper>
-        
+        <Header>
+          Sticky Header Page Title
+        </Header>
+        <Main>
+          <MyNames/>
+        </Main>
+        <Footer>
+          <Nav></Nav>
+        </Footer>
       </>
     );
   }
