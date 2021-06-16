@@ -6,7 +6,7 @@
     import Container from "../../components/Container";
     import Row from "../../components/Row";
     import Col from "../../components/Column";
-    import MyNamesContainer from "../../components/MyNamesContainer";
+    import NameCardContainer from "../../components/NameCardContainer";
     import SectionHeading from "../../components/SectionHeading";
 
 
@@ -26,10 +26,11 @@
                 </Row>
                 <Row>
                     <Col>
-                        <MyNamesContainer/>
+                        <NameCardContainer
+                            showPromoteButton={true}
+                        />
                     </Col>
                 </Row>
-                
             </Container>
         );
     }

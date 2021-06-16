@@ -3,19 +3,30 @@
 /* -------------------------------------------------------------------------- */
 
     import React, { useEffect, useState } from "react";
-    import MyNameCard from "../MyNameCard";
+    import NameCard from "../NameCard";
   
 /* -------------------------------------------------------------------------- */
 /*                            Define Component                                */
 /* -------------------------------------------------------------------------- */
 
-    function MyNamesContainer() {
+    function NameCardContainer(props) {
+
+    /* ------------------------------ Console Logs ------------------------------ */
+
+        console.log('Props on NameCardContainer', props)
 
     /* ---------------------------- Component Render ---------------------------- */
         return (
             <div data-component="MyNamesComponent">
-                <MyNameCard/>
-                <MyNameCard/>
+                <NameCard
+                    showPromoteButton={props.showPromoteButton}
+                />
+                <NameCard
+                    showPromoteButton={props.showPromoteButton}
+                />
+                <NameCard
+                    showPromoteButton={props.showPromoteButton}
+                />
             </div>
         );
     }
@@ -24,4 +35,4 @@
 /*                            Export Component                                */
 /* -------------------------------------------------------------------------- */
 
-    export default MyNamesContainer;
+    export default NameCardContainer;
