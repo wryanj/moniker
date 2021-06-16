@@ -8,16 +8,18 @@
 /*                              Define Component                              */
 /* -------------------------------------------------------------------------- */
 
-    function Header(props) {
+    function MonikerBrand () {
         return (
-            <header className="fixed-top bg-dark d-flex align-items-center text-white py-3 mb-1" data-component="Header">
-                {props.children}
-            </header>
+          <>
+            <h3 className="text-white mb-0">Moniker</h3>
+          </>
         );
     }
 
 /* -------------------------------------------------------------------------- */
 /*                              Export Component                              */
 /* -------------------------------------------------------------------------- */
-
-    export default Header;
+    /*
+        Exported for use Header Component as placed in app.js
+    */
+    export default MonikerBrand;
