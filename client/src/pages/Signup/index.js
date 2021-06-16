@@ -12,14 +12,14 @@
 /*                            Define Page Component                           */
 /* -------------------------------------------------------------------------- */
 
-    function MyNames() {
+    function Signup() {
 
     /* ---------------------------- Component Render ---------------------------- */
         return (
             <Container className=" mt-3 mx-3">
                 <Row>
                     <Col>
-                            MyNames Page Children Placeholder
+                            Signup Page Children Placeholder
                     </Col>
                 </Row>
             </Container>
@@ -30,5 +30,4 @@
 /*                            Export Page Component                           */
 /* -------------------------------------------------------------------------- */
 
-    export default MyNames;
-      
+    export default Signup;
