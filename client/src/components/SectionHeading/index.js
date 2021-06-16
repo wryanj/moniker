@@ -2,23 +2,24 @@
 /*                             Import Dependencies                            */
 /* -------------------------------------------------------------------------- */
 
-    import React from "react";
+    import React, { useEffect, useState } from "react";
 
 /* -------------------------------------------------------------------------- */
-/*                              Define Component                              */
+/*                            Define Component                                */
 /* -------------------------------------------------------------------------- */
 
+    function SectionHeading(props) {
 
-    function Footer(props) {
+    /* ---------------------------- Component Render ---------------------------- */
         return (
-            <footer className="fixed-bottom bg-dark text-white text-center py-1" data-component="Footer">
-                {props.children}
-            </footer>
+            <div className="text-center fw-lighter fst-italic" data-component="SectionHeading">
+                <h4>{props.children}</h4>
+            </div>
         );
     }
 
 /* -------------------------------------------------------------------------- */
-/*                              Export Component                              */
+/*                            Export Component                                */
 /* -------------------------------------------------------------------------- */
 
-    export default Footer;
+    export default SectionHeading;

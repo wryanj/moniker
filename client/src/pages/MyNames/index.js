@@ -6,6 +6,8 @@
     import Container from "../../components/Container";
     import Row from "../../components/Row";
     import Col from "../../components/Column";
+    import MyNamesContainer from "../../components/MyNamesContainer";
+    import SectionHeading from "../../components/SectionHeading";
 
 
 /* -------------------------------------------------------------------------- */
@@ -19,9 +21,15 @@
             <Container className=" mt-3 mx-3">
                 <Row>
                     <Col>
-                            MyNames Page Children Placeholder
+                        <SectionHeading> My Names </SectionHeading>
                     </Col>
                 </Row>
+                <Row>
+                    <Col>
+                        <MyNamesContainer/>
+                    </Col>
+                </Row>
+                
             </Container>
         );
     }

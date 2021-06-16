@@ -13,7 +13,7 @@
 
 function Main (props) {
     return (
-        <main className="container my-5" data-component="Wrapper">
+        <main className="container mt-5 pt-4" data-component="Main">
             <Row>
                 <Col>
                     {props.children}

@@ -27,7 +27,7 @@
                 <div className="offcanvas-body text-secondary">
                     <ul className="list-group">
                         <li className="list-group-item active" aria-current="true">Profile</li>
-                        <li className="list-group-item">Add Family Member</li>
+                        <li className="list-group-item">Invite User</li>
                         <li className="list-group-item">Logout</li>
                     </ul>
                 </div>

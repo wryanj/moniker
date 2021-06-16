@@ -2,23 +2,26 @@
 /*                             Import Dependencies                            */
 /* -------------------------------------------------------------------------- */
 
-    import React from "react";
-
+    import React, { useEffect, useState } from "react";
+    import MyNameCard from "../MyNameCard";
+  
 /* -------------------------------------------------------------------------- */
-/*                              Define Component                              */
+/*                            Define Component                                */
 /* -------------------------------------------------------------------------- */
 
+    function MyNamesContainer() {
 
-    function Footer(props) {
+    /* ---------------------------- Component Render ---------------------------- */
         return (
-            <footer className="fixed-bottom bg-dark text-white text-center py-1" data-component="Footer">
-                {props.children}
-            </footer>
+            <div data-component="MyNamesComponent">
+                <MyNameCard/>
+                <MyNameCard/>
+            </div>
         );
     }
 
 /* -------------------------------------------------------------------------- */
-/*                              Export Component                              */
+/*                            Export Component                                */
 /* -------------------------------------------------------------------------- */
 
-    export default Footer;
+    export default MyNamesContainer;
