@@ -12,7 +12,7 @@
 
     /* ---------------------------- Visability Handlers --------------------------- */
 
-        // Checks if card should have promote button based on page that renders this component
+        // Checks if card should have promote button visible on the card based on page that renders this component
         function handleShowPromoteButton () {
             if (props.showPromoteButton === true) {
                 return (
@@ -20,8 +20,8 @@
                         <div>
                             <button className="btn btn-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-box-arrow-in-up text-success" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M3.5 10a.5.5 0 0 1-.5-.5v-8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 0 0 1h2A1.5 1.5 0 0 0 14 9.5v-8A1.5 1.5 0 0 0 12.5 0h-9A1.5 1.5 0 0 0 2 1.5v8A1.5 1.5 0 0 0 3.5 11h2a.5.5 0 0 0 0-1h-2z"/>
-                                    <path fill-rule="evenodd" d="M7.646 4.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V14.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3z"/>
+                                    <path fillRule="evenodd" d="M3.5 10a.5.5 0 0 1-.5-.5v-8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 0 0 1h2A1.5 1.5 0 0 0 14 9.5v-8A1.5 1.5 0 0 0 12.5 0h-9A1.5 1.5 0 0 0 2 1.5v8A1.5 1.5 0 0 0 3.5 11h2a.5.5 0 0 0 0-1h-2z"/>
+                                    <path fillRule="evenodd" d="M7.646 4.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V14.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3z"/>
                                 </svg>
                             </button>
                         </div>
@@ -31,17 +31,18 @@
             else {
                 return;
             }
-        }
+        };
 
     /* ------------------------------ Console Logs ------------------------------ */
 
-        console.log('Props on NameCard', props);
+        //console.log('Props on NameCard', props);
 
     /* ---------------------------- Component Render ---------------------------- */
         return (
             <div data-component="MyNameCard">
                 <div className="card row my-1">
                     <div className="card-body d-flex align-items-center px-0">
+                        
                         {/*Rank Up or Down Buttons*/}
                         <div className="px-1">
                             <div>
@@ -59,16 +60,15 @@
                                 </button>
                             </div>
                         </div>
-                        {/*Gender Identifier*/}
-                        <div className="px-1 fw-bold">
-                            M
-                        </div>
+
                         {/*Liked Name*/}
-                        <div className="px-1 w-75">
+                        <div className="px-2 w-75 fw-bold text-center fs-5">
                             Name
                         </div>
+
                         {/*Promote Button*/}
                         {handleShowPromoteButton()}
+
                         {/*Info Button*/}
                         <div className="px-1">
                             <div>
@@ -79,6 +79,7 @@
                                     </svg>
                                 </button>
                             </div>
+
                         </div>
                     </div>
                 </div>

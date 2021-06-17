@@ -6,7 +6,7 @@
     import Container from "../../components/Container";
     import Row from "../../components/Row";
     import Col from "../../components/Column";
-    import SectionHeading from "../../components/SectionHeading";
+    import NameOptionsBar from "../../components/NameOptionsBar";
     import NameCardContainer from "../../components/NameCardContainer";
 
 
@@ -19,11 +19,11 @@
     /* ---------------------------- Component Render ---------------------------- */
         return (
             <Container className=" mt-3 mx-3">
-                  <Row>
+                {/* <Row>
                     <Col>
-                        <SectionHeading> Our Names </SectionHeading>
+                       <NameOptionsBar/>
                     </Col>
-                </Row>
+                </Row> */}
                 <Row>
                     <Col>
                         <NameCardContainer

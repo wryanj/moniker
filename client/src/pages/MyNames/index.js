@@ -7,7 +7,7 @@
     import Row from "../../components/Row";
     import Col from "../../components/Column";
     import NameCardContainer from "../../components/NameCardContainer";
-    import SectionHeading from "../../components/SectionHeading";
+    import NameOptionsBar from "../../components/NameOptionsBar";
 
 
 /* -------------------------------------------------------------------------- */
@@ -21,7 +21,7 @@
             <Container className=" mt-3 mx-3">
                 <Row>
                     <Col>
-                        <SectionHeading> My Names </SectionHeading>
+                       <NameOptionsBar/>
                     </Col>
                 </Row>
                 <Row>
