@@ -41,9 +41,16 @@
                         </Modal.Header>
                         <Modal.Body>
                             <form>
-                                <h5 className= "text-center">Name</h5>
+                                <h6 className= "text-center">Name</h6>
                                     <div className="input-group mb-3">
                                         <input type="text" className="form-control" placeholder="Enter Name..." aria-label="Title" aria-describedby="titleinput"/> 
+                                    </div>
+                                <h6 className= "text-center">Liked as a...</h6>
+                                    <div className="input-group mb-3">
+                                        <select className="form-select"  aria-label="Default select example">
+                                            <option value="Open">First Name</option>
+                                            <option value="Assigned">Middle Name</option>
+                                        </select>
                                     </div>
                             </form>
                         </Modal.Body>
