@@ -7,6 +7,7 @@
 	import Header from './components/Header';
 	import SettingsMenu from './components/SettingsMenu';
 	import MonikerBrand from './components/MonikerBrand';
+	import AddNameModal from './components/AddNameModal';
 	import Footer from './components/Footer';
 	import Main from './components/Main';
 	import Nav from './components/Navbar';
@@ -27,6 +28,7 @@
 				<Header>
 					<SettingsMenu/>
 					<MonikerBrand/>
+					<AddNameModal/>
 				</Header>
 				<Main>
 					<Switch>

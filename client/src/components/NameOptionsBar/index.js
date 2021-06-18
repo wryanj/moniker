@@ -13,7 +13,6 @@
     function NameOptionsBar() {
         return (
            <div className="mb-2">
-                <AddNameModal/>
                 <NameTypeFilter/>
            </div>
         );
