@@ -21,13 +21,15 @@
 
             <div className="offcanvas offcanvas-start" tabIndex="-1" id="settingsMenu" aria-labelledby="settingsMenuLabel">
                 <div className="offcanvas-header">
-                    <h5 className="offcanvas-title text-secondary" id="settingsMenuLabel">Settings</h5>
+                    <h5 className="offcanvas-title text-secondary" id="settingsMenuLabel">Menu</h5>
                     <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div className="offcanvas-body text-secondary">
                     <ul className="list-group">
                         <li className="list-group-item active" aria-current="true">Profile</li>
+                        <li className="list-group-item">Alerts</li>
                         <li className="list-group-item">Invite User</li>
+                        <li className="list-group-item">App Overview</li>
                         <li className="list-group-item">Submit Feedback</li>
                         <li className="list-group-item">Logout</li>
                     </ul>

@@ -89,7 +89,7 @@
                     <button  className="btn btn-sm btn-success px-2" variant="primary" onClick={openModal}>
                         Add Name
                     </button>
-                    <Modal show={visability} onHide={closeModal}>
+                    <Modal show={visability} onHide={closeModal} className="mt-3">
                         <Modal.Header>
                             <Modal.Title>Add Name</Modal.Title>
                         </Modal.Header>
