@@ -2,20 +2,20 @@
 /*                             Import Dependencies                            */
 /* -------------------------------------------------------------------------- */
 
-    const {Firstname} = require('../models');
+    const {Name} = require('../models');
    
 /* -------------------------------------------------------------------------- */
-/*                 Define Methods For Firstname Controller                    */
+/*                 Define Methods For Name Controller                         */
 /* -------------------------------------------------------------------------- */
 
     module.exports = {
 
-    /* ---------------------- Get all firstnames From DB --------------------- */
+    /* ---------------------- Get all names From DB --------------------- */
 
         findAll: async function (req, res) {
             try {
-              const firstnameData = await Firstname.findAll({})
-              res.status(200).json(firstnameData);
+              const nameData = await Name.findAll({})
+              res.status(200).json(nameData);
             } 
             catch (err) {
               console.log(err);
@@ -23,14 +23,14 @@
             }
           },
 
-    /* -------------------------- Get a firstname by id ------------------------- */
+    /* -------------------------- Get a name by id ------------------------- */
 
         findById: async function (req, res) {
             try {
-              const firstnameData = await Firstname.findOne({
+              const nameData = await Name.findOne({
                 where: { id: req.params.id},
               });
-              res.status(200).json(firstnameData);
+              res.status(200).json(nameData);
             } 
             catch (err) {
               console.log(err);
@@ -38,12 +38,12 @@
             }
           },
 
-    /* ------- Create a firstname (via selection of one, or custom entry) ------- */
+    /* ------- Create a name (via selection of one, or custom entry) ------- */
 
         create: async function (req, res) {
             try {
-              const firstnameData = await Firstname.create(req.body);
-              res.status(200).json(firstnameData);
+              const nameData = await Name.create(req.body);
+              res.status(200).json(nameData);
             } 
             catch (err) {
               console.log(err);
@@ -51,27 +51,27 @@
             }
           },
 
-    /* --------------------------- Edit Firstname Info -------------------------- */
+    /* --------------------------- Edit name Info -------------------------- */
 
         update: async function (req, res) {
           try {
-            const firstnameData = await Firstname.update(req.body, {
+            const nameData = await Name.update(req.body, {
               where: {
                 id: req.params.id
               }
             });
-            res.status(200).json(firstnameData);
+            res.status(200).json(nameData);
           } catch (err) {
             console.log(err);
             res.status(422).json(err);
           }
         },
 
-    /* --------------------------- Delete a firstname --------------------------- */
+    /* --------------------------- Delete a name --------------------------- */
 
         remove: async function (req, res) {
             try {
-              const firstnameData = await Firstname.destroy({
+              const nameData = await Name.destroy({
                 where: {
                   id: req.params.id
                 }

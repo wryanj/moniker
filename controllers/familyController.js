@@ -2,7 +2,7 @@
 /*                             Import Dependencies                            */
 /* -------------------------------------------------------------------------- */
 
-    const {Family, Firstname, Middlename, Fullname, User} = require('../models');
+    const {Family, Name, User} = require('../models');
    
 /* -------------------------------------------------------------------------- */
 /*                    Define Methods For Family Controller                    */
@@ -36,20 +36,10 @@
                 where: { id: req.params.id },
                 include: [
                   {
-                    model: Firstname,
-                    attributes: ["id", "name", "gender", "family_rank"],
-                    as: 'familyLikedFirstnames'
-                  },
-                  {
-                    model: Middlename,
-                    attributes: ["id", "name", "gender", "family_rank"],
-                    as: 'familyLikedMiddlenames'
-                  },
-                  {
-                    model: Fullname,
-                    attributes: ["id", "name", "gender", "family_rank"],
-                    as: "familyLikedFullnames"
-                  },
+                    model: Name,
+                    attributes: ["id", "name", "gender", "type", "family_rank"],
+                    as: 'familyLikedNames'
+                  }
                 ],
               });
               res.status(200).json(familyData);
@@ -70,20 +60,10 @@
                   where: { id: req.session.family_id }, // Figure out best way to do this. 
                   include: [
                     {
-                      model: Firstname,
-                      attributes: ["id", "name", "gender", "family_rank"],
-                      as: 'familyLikedFirstnames'
-                    },
-                    {
-                      model: Middlename,
-                      attributes: ["id", "name", "gender", "family_rank"],
-                      as: 'familyLikedMiddlenames'
-                    },
-                    {
-                      model: Fullname,
-                      attributes: ["id", "name", "gender", "family_rank"],
-                      as: "familyLikedFullnames"
-                    },
+                      model: Name,
+                      attributes: ["id", "name", "gender", "type", "family_rank"],
+                      as: 'familyLikedNames'
+                    }
                   ],
                 });
                 res.status(200).json(familyData);

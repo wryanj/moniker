@@ -3,7 +3,7 @@
 /* -------------------------------------------------------------------------- */
 
     const router = require("express").Router();
-    const firstnameController = require("../../controllers/firstnameController");
+    const nameController = require("../../controllers/nameController");
 
 /* -------------------------------------------------------------------------- */
 /*                               Handle Routing                               */
@@ -11,21 +11,21 @@
 
     /*
         Calls methods based on type of axios call used on the path
-        PATH - homeurl/api/firstname...
+        PATH - homeurl/api/name...
     */
 
-    // Use specified controller methods if it hits /api/firstname
+    // Use specified controller methods if it hits /api/name
     router
     .route("/")
-    .get(firstnameController.findAll)
-    .post(firstnameController.create);
+    .get(nameController.findAll)
+    .post(nameController.create);
 
-    // Use specified controller methods if it hits /api/firstname/id
+    // Use specified controller methods if it hits /api/name/id
     router
     .route("/:id")
-    .get(firstnameController.findById)
-    .put(firstnameController.update)
-    .delete(firstnameController.remove);
+    .get(nameController.findById)
+    .put(nameController.update)
+    .delete(nameController.remove);
 
 
 /* -------------------------------------------------------------------------- */

@@ -4,9 +4,7 @@
     const router = require("express").Router();
     const familyRoutes = require("./family");
     const userRoutes = require("./user");
-    const firstnameRoutes = require("./firstname");
-    const middlenameRoutes = require("./middlename");
-    const fullnameRoutes = require('./fullname');
+    const nameRoutes = require("./name");
     const commentRoutes = require("./comment");
 
 /* -------------------------------------------------------------------------- */
@@ -23,9 +21,7 @@
 
     router.use("/family", familyRoutes);
     router.use("/user", userRoutes);
-    router.use("/firstname", firstnameRoutes);
-    router.use("/middlename", middlenameRoutes);
-    router.use("/fullname", fullnameRoutes);
+    router.use("/name", nameRoutes);
     router.use("/comment", commentRoutes);
 
 /* -------------------------------------------------------------------------- */

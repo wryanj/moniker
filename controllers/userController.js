@@ -2,7 +2,7 @@
 /*                             Import Dependencies                            */
 /* -------------------------------------------------------------------------- */
 
-    const {User, Firstname, Middlename, Family, Fullname} = require('../models');
+    const {User, Name, Family} = require('../models');
    
 /* -------------------------------------------------------------------------- */
 /*                    Define Methods For User Controller                      */
@@ -20,21 +20,11 @@
                     attributes: ["name"]
                   },
                   {
-                    model: Firstname,
-                    attributes: ["id", "name", "gender", "user_rank"],
-                    as: 'userLikedFirstnames'
-                  },
-                  {
-                    model: Middlename,
-                    attributes: ["id", "name", "gender", "user_rank"],
-                    as: 'userLikedMiddlenames'
-                  },
-                  {
-                    model: Fullname,
-                    attributes: ["id", "name", "gender", "user_rank"],
-                    as: "userLikedFullnames"
+                    model: Name,
+                    attributes: ["id", "name", "gender", "type", "user_rank"],
+                    as: 'userLikedNames'
                   }
-                ],
+                ]
               })
               res.status(200).json(userData);
             } 
@@ -56,21 +46,11 @@
                     attributes: ["name"]
                   },
                   {
-                    model: Firstname,
-                    attributes: ["id", "name", "gender", "user_rank"],
-                    as: 'userLikedFirstnames'
-                  },
-                  {
-                    model: Middlename,
-                    attributes: ["id", "name", "gender", "user_rank"],
-                    as: 'userLikedMiddlenames'
-                  },
-                  {
-                    model: Fullname,
-                    attributes: ["id", "name", "gender", "user_rank"],
-                    as: "userLikedFullnames"
+                    model: Name,
+                    attributes: ["id", "name", "gender", "type", "user_rank"],
+                    as: 'userLikedNames'
                   }
-                ],
+                ]
               });
               res.status(200).json(userData.dataValues);
             } 
@@ -92,21 +72,11 @@
                     attributes: ["name"]
                   },
                   {
-                    model: Firstname,
-                    attributes: ["id", "name", "gender", "user_rank"],
-                    as: 'userLikedFirstnames'
-                  },
-                  {
-                    model: Middlename,
-                    attributes: ["id", "name", "gender", "user_rank"],
-                    as: 'userLikedMiddlenames'
-                  },
-                  {
-                    model: Fullname,
-                    attributes: ["id", "name", "gender", "user_rank"],
-                    as: "userLikedFullnames"
+                    model: Name,
+                    attributes: ["id", "name", "gender", "type", "user_rank"],
+                    as: 'userLikedNames'
                   }
-                ],
+                ]
               });
               res.status(200).json(userData);
             } 
@@ -162,4 +132,4 @@
           }
         }
           
-    }
+  }
