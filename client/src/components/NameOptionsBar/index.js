@@ -3,7 +3,7 @@
 /* -------------------------------------------------------------------------- */
 
     import React from "react";
-    import FullnameToggle from "../FullnameToggle";
+    import NameTypeFilter from "../NameTypeFilter";
     import AddNameModal from "../AddNameModal";
 
 /* -------------------------------------------------------------------------- */
@@ -12,11 +12,10 @@
 
     function NameOptionsBar() {
         return (
-           <div className="d-flex justify-content-between align-items-center mb-3">
-               <AddNameModal/>
-               <FullnameToggle/>
+           <div className="mb-2">
+                <AddNameModal/>
+                <NameTypeFilter/>
            </div>
-           
         );
     }
 

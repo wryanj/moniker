@@ -13,11 +13,17 @@
 
     /* ------------------------------ Console Logs ------------------------------ */
 
-        console.log('Props on NameCardContainer', props)
+        // console.log('Props on NameCardContainer', props)
 
     /* ---------------------------- Component Render ---------------------------- */
         return (
             <div data-component="MyNamesComponent">
+                <NameCard
+                    showPromoteButton={props.showPromoteButton}
+                />
+                <NameCard
+                    showPromoteButton={props.showPromoteButton}
+                />
                 <NameCard
                     showPromoteButton={props.showPromoteButton}
                 />

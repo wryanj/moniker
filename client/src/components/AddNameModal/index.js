@@ -34,7 +34,7 @@
                 let NameType = React.createRef();
                 let NameGender = React.createRef();
 
-                // Manage capture, post, validation of added name
+                // Manage capture, validation, and posting of a newly added name
                 function addName () {
 
                     // Set the name object for the db
@@ -85,7 +85,7 @@
                             
         /* ---------------------------- Render Component ---------------------------- */
             return (
-                <>
+                <div className="text-center mb-3">
                     <button  className="btn btn-sm btn-success px-2" variant="primary" onClick={openModal}>
                         Add Name
                     </button>
@@ -126,7 +126,7 @@
                             </div>
                         </Modal.Footer>
                     </Modal>
-                </>
+                </div>
             );
     };
 
