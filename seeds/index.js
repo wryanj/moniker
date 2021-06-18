@@ -5,9 +5,7 @@
 /* -------------------------- Import Seed Functions ------------------------- */
     const seedFamily = require('./family-seeds');
     const seedUser = require('./user-seeds');
-    const seedFirstname = require('./firstname-seeds');
-    const seedMiddlename = require('./middlename-seeds');
-    const seedFullname = require('./fullname-seeds');
+    const seedName = require('./name-seeds');
     const seedComment = require('./comment-seeds');
 
 /* ------------------- Import database connection instance ------------------ */
@@ -33,14 +31,8 @@
         await seedUser();
         console.log('\n----- USERS SEEDED -----\n');
     
-        await seedFirstname();
-        console.log('\n----- FIRSTNAMES SEEDED -----\n');
-    
-        await seedMiddlename();
-        console.log('\n----- MIDDLENAMES SEEDED -----\n');
-
-        await seedFullname();
-        console.log('\n----- FULLNAMES SEEDED -----\n');
+        await seedName();
+        console.log('\n----- NAMES SEEDED -----\n');
     
         await seedComment();
         console.log('\n----- COMMENTS SEEDED -----\n');

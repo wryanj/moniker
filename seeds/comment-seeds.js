@@ -14,8 +14,7 @@ const {Comment} = require('../models');
         {
             // id is created by sql
             user_id: 1, // FK for user association
-            firstname_id: 1, // FK for firstname association (if its on a firstname)
-            middlename_id: null, // FK for middlename association (if its on a middlename)
+            name_id: 1, // FK for name association
             comment: 'This one is for sure a winner can we do it?'
         },
 
@@ -23,8 +22,7 @@ const {Comment} = require('../models');
         {
             // id is created by sql
             user_id: 2, // FK for user association
-            firstname_id: 1, // FK for firstname association (if its on a firstname)
-            middlename_id: null, // FK for middlename association (if its on a middlename)
+            name_id: 2, // FK for name association
             comment: 'YES! I love this one too we will rank it on the top right now'
         },
 

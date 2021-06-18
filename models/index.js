@@ -3,9 +3,7 @@
 /* -------------------------------------------------------------------------- */
     const Family = require('./family')    
     const User = require('./user');
-    const Firstname = require('./firstname');
-    const Middlename = require('./middlename');
-    const Fullname = require("./fullname");
+    const Name = require('./name');
     const Comment = require('./comment');
 
 /* -------------------------------------------------------------------------- */
@@ -20,24 +18,10 @@
         });
 
     // A Family can haave multiple mutually liked firstnames, if promoted and accepted family members
-        Family.hasMany(Firstname, {
+        Family.hasMany(Name, {
             foreignKey:'family_id',
             onDelete: 'CASCADE',
-            as: "familyLikedFirstnames"
-        });
-
-    // A Family can haave multiple mutually liked middlenames, if promoted and accepted family members
-        Family.hasMany(Middlename, {
-            foreignKey:'family_id',
-            onDelete: 'CASCADE',
-            as: "familyLikedMiddlenames"
-        });
-
-    // A Family can haave multiple mutually liked fullnames, if promoted and accepted family members
-        Family.hasMany(Fullname, {
-            foreignKey:'family_id',
-            onDelete: 'CASCADE',
-            as: "familyLikedFullnames"
+            as: "familyLikedNames"
         });
 
 /* ------------------------- User Associations ------------------------- */
@@ -48,24 +32,10 @@
         });
 
     // Users and Firstnames (Users create or select many firstnames they like)
-        User.hasMany(Firstname, {
+        User.hasMany(Name, {
             foreignKey: 'user_id',
             onDelete: 'CASCADE',
-            as: "userLikedFirstnames"
-        });
-
-    // Users and Middlenames (Users create or select many middlenames they like)
-        User.hasMany(Middlename, {
-            foreignKey: 'user_id',
-            onDelete: 'CASCADE',
-            as: "userLikedMiddlenames"
-        });
-
-    // Users and Middlenames (Users create or select many middlenames they like)
-        User.hasMany(Fullname, {
-            foreignKey: 'user_id',
-            onDelete: 'CASCADE',
-            as: "userLikedFullnames"
+            as: "userLikedNames"
         });
 
     // Users and Comments (Users make many comments)
@@ -74,69 +44,25 @@
             onDelete: 'CASCADE'
         });
 
-/* ------------------------- Firstname Associations ------------------------- */
+/* ------------------------- Name Associations ---------------------------- */
 
     // Firstnames can be promoted by a user and accepted as a family liked firstname
-        Firstname.belongsTo(Family, {
+        Name.belongsTo(Family, {
             foreignKey: 'family_id',
             onDelete: 'CASCADE',
-            as: "familyLikedFirstnames"
+            as: "familyLikedNames"
         });
 
     // Firstnames are selected or created by a user
-        Firstname.belongsTo(User, {
+        Name.belongsTo(User, {
             foreignKey: 'user_id',
             onDelete: 'CASCADE',
-            as: "userLikedFirstnames"
+            as: "userLikedNames"
         });
 
     // Firstnames can have many comments made on them by different users
-        Firstname.hasMany(Comment, {
-            foreignKey:'firstname_id',
-            onDelete: 'CASCADE'
-        });
-
-/* ------------------------- Middlename Associations ------------------------ */
-
-    // Firstnames can be promoted by a user and accepted as a family liked firstname
-        Middlename.belongsTo(Family, {
-            foreignKey: 'family_id',
-            onDelete: 'CASCADE',
-            as: "familyLikedMiddlenames"
-        });
-
-    // Middlenames are selected or created by a user
-        Middlename.belongsTo(User, {
-            foreignKey: 'user_id',
-            onDelete: 'CASCADE',
-            as: "userLikedMiddlenames"
-        });
-
-    // Middlenames can have many comments made on them by different users
-        Middlename.hasMany(Comment, {
-            foreignKey:'middlename_id',
-            onDelete: 'CASCADE'
-        });
-
-/* ------------------------- Fullname Associations --------------------------- */
-
-    // Firstnames can be promoted by a user and accepted as a family liked firstname
-        Fullname.belongsTo(Family, {
-            foreignKey: 'family_id',
-            onDelete: 'CASCADE',
-            as: "familyLikedFullnames"
-        });
-    
-    // Fullnames are created by users by mixing first and middle
-        Fullname.belongsTo(User, {
-            foreignKey: 'user_id',
-            onDelete: 'CASCADE',
-            as: "userLikedFullnames"
-        });
-
-    // Fullnames can have many comments made on them by different users
-        Fullname.hasMany(Comment, {
-            foreignKey:'fullname_id',
+        Name.hasMany(Comment, {
+            foreignKey:'name_id',
             onDelete: 'CASCADE'
         });
 
@@ -149,20 +75,8 @@
         });
 
     // Comments can be made about a specific firstname
-        Comment.belongsTo(Firstname, {
-            foreignKey: 'firstname_id',
-            onDelete: 'CASCADE'
-        });
-
-    // Comments can be made about a specific middlename
-        Comment.belongsTo(Middlename, {
-            foreignKey: 'middlename_id',
-            onDelete: 'CASCADE'
-        });
-    
-    // Comments can be made about a specific middlename
-        Comment.belongsTo(Fullname, {
-            foreignKey: 'fullname_id',
+        Comment.belongsTo(Name, {
+            foreignKey: 'name_id',
             onDelete: 'CASCADE'
         });
 
@@ -173,9 +87,7 @@
     module.exports = {
         Family,
         User,
-        Firstname,
-        Middlename,
-        Fullname,
+        Name,
         Comment
     };
 
