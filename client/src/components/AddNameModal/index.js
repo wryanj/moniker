@@ -45,13 +45,14 @@
                             // family_id: ENTER CURRENT USER'S FAMILY ID,
                             name: Name.current.value,
                             gender: NameGender.current.value,
+                            type: NameType.current.value,
                             // user_rank: FIGURE OUT HOW TO POPULATE
                             // family_rank is left null until promoted to family board 
                         };
                             console.log('newName for db submission read as', newName); // FOR TESTING
 
                     // Validate all require inputs are completed
-                    if (newName.name !=="" && newName.gender !=null && NameType.current[NameType.current.selectedIndex]!=null) {
+                    if (newName.name !=="" && newName.gender !=null && newName.type!=null) {
                         console.log('trigger to execute post of added name'); // FOR TESTING
                         /*
                         executePost();
@@ -62,25 +63,15 @@
                     };
 
                     /*
-                    // Post the new name as first or middle based on type selection (?ADD TYPE FIELD TO MODELS?)
-                    function executePost () {
-                            
-                        // If first name was type, post to firstname db
-                        if (NameType.current[NameType.current.selectedIndex]==="First Name") {
-                            API.addFirstName(newName)
-                                .then(closeModal)
-                                .then(window.location.reload())
-                                .catch(err=>console.log(err));
-                        }
-                        // Else (if Middle Name, only other option type) post to middlename db
-                        else {
-                            API.addMiddleName(newName)
-                                .then(closeModal)
-                                .then(window.location.reload())
-                                .catch(err=>console.log(err));
-                        };
+                    // Post the new name to the db
+                    function executePost () {   
+                        API.addName(newName)
+                            .then(closeModal)
+                            .then(window.location.reload())
+                            .catch(err=>console.log(err));
                     };
-                    */ 
+                    */
+                    
                 };
                             
         /* ---------------------------- Render Component ---------------------------- */
@@ -102,8 +93,8 @@
                                 <h6 className= "text-center">Liked as a...</h6>
                                     <div className="input-group mb-3">
                                         <select ref={NameType} className="form-select" aria-label="Name Type">
-                                            <option value="First Name">First Name</option>
-                                            <option value="Last Name">Middle Name</option>
+                                            <option value="First">First Name</option>
+                                            <option value="Middle">Middle Name</option>
                                         </select>
                                     </div>
                                 <h6 className= "text-center">For a...</h6>
