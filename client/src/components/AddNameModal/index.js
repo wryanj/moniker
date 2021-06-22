@@ -37,13 +37,26 @@
                 // Manage capture, validation, and posting of a newly added name
                 function addName () {
 
-                    // Set the name object for the db
+                    // Ensure name entry has a capital first letter
+
+                        // Define variable to reference when creating new name object for the db post transaction
+                        let capitalizedName;
+
+                        // Declare a function to make name capitalized
+                        function capitalizeName (currentName) {
+                            return currentName.charAt(0).toUpperCase() + currentName.slice(1)
+                        };
+
+                        // Invoke function to capitalize name (even if already done) by passing created ref current value as argument
+                        capitalizedName = capitalizeName(Name.current.value);
+                            
+                    // Set the name object for the db post transaction
                     let newName = 
                         {
                             // id is auto created in sql
                             // user_id: ENTER CURRENT USER ID,
                             // family_id: ENTER CURRENT USER'S FAMILY ID,
-                            name: Name.current.value,
+                            name: capitalizedName,
                             gender: NameGender.current.value,
                             type: NameType.current.value,
                             // user_rank: FIGURE OUT HOW TO POPULATE
