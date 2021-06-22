@@ -4,7 +4,6 @@
 
     import React from "react";
     import NameTypeFilter from "../NameTypeFilter";
-    import AddNameModal from "../AddNameModal";
 
 /* -------------------------------------------------------------------------- */
 /*                              Define Component                              */

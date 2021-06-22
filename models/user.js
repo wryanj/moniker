@@ -34,14 +34,14 @@
                 type: DataTypes.STRING,
                 allowNull: false,
                 validate: {
-                    isIn: [['Male', 'Female', 'Other']],
+                    isIn: [['male', 'female', 'other']],
                 },
             },
             role: {
                 type: DataTypes.STRING,
                 allowNull: false,
                 validate: {
-                    isIn: [['Husband', 'Wife', 'Guest']],
+                    isIn: [['husband', 'wife', 'guest']],
                 },
             },
             is_admin: {

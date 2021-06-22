@@ -44,6 +44,7 @@
             try {
               const nameData = await Name.create(req.body);
               res.status(200).json(nameData);
+              console.log('nameController CREATE endpoint hit with successful response');
             } 
             catch (err) {
               console.log(err);

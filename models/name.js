@@ -37,14 +37,14 @@
                     type: DataTypes.STRING,
                     allowNull: false,
                     validate: {
-                        isIn: [['Male', 'Female']],
+                        isIn: [['male', 'female']], // case sensitive!
                     }
                 },
                 type: {
                     type:DataTypes.STRING,
                     allowNull: false,
                     validate: {
-                        isIn: [['First', 'Middle', 'Full']],
+                        isIn: [['first', 'middle', 'full']], // case sensitive!
                     }
                 },
                 user_rank: {
