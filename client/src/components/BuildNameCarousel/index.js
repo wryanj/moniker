@@ -10,7 +10,7 @@
 
     function BuildNameCarousel(props) {
         return (
-            <div id={props.carouselId} class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div id={props.carouselId} class="carousel carousel-dark slide" data-bs-interval="false" data-bs-ride="carousel">
                 <div class="carousel-inner text-center">
                     <div class="carousel-item active">
                         Name 1
