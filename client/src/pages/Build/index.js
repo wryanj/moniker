@@ -55,7 +55,9 @@
                 </Row>
                 <Row className="my-4">
                     <Col>
-                        <BuildNameCarousel/>
+                        <BuildNameCarousel
+                            carouselId = "firstnameCarousel"
+                        />
                     </Col>
                 </Row>
                 <Row className="my-4">
@@ -65,7 +67,9 @@
                 </Row>
                 <Row className="my-4">
                     <Col>
-                        <BuildNameCarousel/>
+                        <BuildNameCarousel
+                            carouselId = "middlenameCarousel"
+                        />
                     </Col>
                 </Row>
                 <Row className="my-4">
