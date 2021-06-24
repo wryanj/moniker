@@ -11,10 +11,13 @@
 	import Footer from './components/Footer';
 	import Main from './components/Main';
 	import Nav from './components/Navbar';
+	import Login from './pages/Login';
+	import Signup from './pages/Signup';
 	import MyNames from './pages/MyNames';
 	import OurNames from './pages/OurNames';
 	import Build from './pages/Build';
 	import Browse from './pages/Browse';
+	
   
 /* -------------------------------------------------------------------------- */
 /*                            Define App Component                            */
@@ -33,6 +36,8 @@
 				<Main>
 					<Switch>
 						<Route exact path="/" component={MyNames}></Route>
+						<Route exact path="/login" component={Login}></Route>
+						<Route exact path="/signup" component={Signup}></Route>
 						<Route exact path="/ournames" component={OurNames}></Route>
 						<Route exact path="/build" component={Build}></Route>
 						<Route exact path="/browse" component={Browse}></Route>

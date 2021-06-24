@@ -6,6 +6,7 @@
     import Container from "../../components/Container";
     import Row from "../../components/Row";
     import Col from "../../components/Column";
+    import LoginForm from "../../components/LoginForm";
 
 
 /* -------------------------------------------------------------------------- */
@@ -19,7 +20,7 @@
             <Container className=" mt-3 mx-3">
                 <Row>
                     <Col>
-                            Login Page Children Placeholder
+                        <LoginForm/>
                     </Col>
                 </Row>
             </Container>

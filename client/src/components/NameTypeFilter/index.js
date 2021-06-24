@@ -11,17 +11,17 @@ import React from "react";
     function NameTypeFilter() {
         return (
             <div className="text-center">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="first"/>
-                    <label class="form-check-label" for="inlineRadio1">First</label>
+                <div className="form-check form-check-inline">
+                    <input className="form-check-input" type="radio" name="inlineRadioOptions" id="firstnameFilter" value="first"/>
+                    <label className="form-check-label" htmlFor="firstnameFilter">First</label>
                 </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="middle"/>
-                    <label class="form-check-label" for="inlineRadio2">Middle</label>
+                <div className="form-check form-check-inline">
+                    <input className="form-check-input" type="radio" name="inlineRadioOptions" id="middlenameFilter" value="middle"/>
+                    <label className="form-check-label" htmlFor="middlenameFilter">Middle</label>
                 </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="full"/>
-                    <label class="form-check-label" for="inlineRadio2">Full</label>
+                <div className="form-check form-check-inline">
+                    <input className="form-check-input" type="radio" name="inlineRadioOptions" id="fullnameFilter" value="full"/>
+                    <label className="form-check-label" htmlFor="fullnameFilter">Full</label>
                 </div>
             </div>
         );
