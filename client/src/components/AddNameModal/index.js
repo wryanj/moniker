@@ -39,16 +39,13 @@
 
                     // Ensure name entry has a capital first letter
 
-                        // Define variable to reference when creating new name object for the db post transaction
-                        let capitalizedName;
-
                         // Declare a function to make name capitalized
                         function capitalizeName (currentName) {
                             return currentName.charAt(0).toUpperCase() + currentName.slice(1)
                         };
 
-                        // Invoke function to capitalize name (even if already done) by passing created ref current value as argument
-                        capitalizedName = capitalizeName(Name.current.value);
+                        // Set variable to hold output of capitalized name, and use to set name property of object for db post
+                        const capitalizedName = capitalizeName(Name.current.value);
                             
                     // Set the name object for the db post transaction
                     let newName = 
