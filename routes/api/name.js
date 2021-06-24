@@ -16,16 +16,16 @@
 
     // Use specified controller methods if it hits /api/name
     router
-    .route("/")
-    .get(nameController.findAll)
-    .post(nameController.create);
+        .route("/")
+            .get(nameController.findAll)
+            .post(nameController.create);
 
     // Use specified controller methods if it hits /api/name/id
     router
-    .route("/:id")
-    .get(nameController.findById)
-    .put(nameController.update)
-    .delete(nameController.remove);
+        .route("/:id")
+            .get(nameController.findById)
+            .put(nameController.update)
+            .delete(nameController.remove);
 
 
 /* -------------------------------------------------------------------------- */

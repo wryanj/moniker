@@ -8,7 +8,12 @@
 /* -------------------------------------------------------------------------- */
 /*                                Define Model                                */
 /* -------------------------------------------------------------------------- */
-    class User extends Model {}
+    class User extends Model {
+        // Check password method used on authController for login
+        checkPassword(loginPw) {
+            return bcrypt.compareSync(loginPw, this.password);
+        };
+    }
 
     User.init (
         {

@@ -1,7 +1,9 @@
 /* -------------------------------------------------------------------------- */
 /*                             Import Dependencies                            */
 /* -------------------------------------------------------------------------- */
+
     const router = require("express").Router();
+    const authRoutes = require("./auth");
     const familyRoutes = require("./family");
     const userRoutes = require("./user");
     const nameRoutes = require("./name");
@@ -19,6 +21,7 @@
         PATH - homeurl/api...
     */
 
+    router.use("/auth", authRoutes)
     router.use("/family", familyRoutes);
     router.use("/user", userRoutes);
     router.use("/name", nameRoutes);

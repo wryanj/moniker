@@ -18,15 +18,9 @@
     function Build() {
 
     /* ---------------------------- Component Render ---------------------------- */
-        /*
-            Pass different props to build name carosel and populate first and middle names 
-            using same component passed diff props. Default start based on ranked order
-            may have to pass props for ids for data-bs-targets so the arrow work on the same
-            page ok
-        */
+    
         return (
             <Container className=" mt-3 mx-3">
-               
                 <Row className="my-3">
                     <Col>
                         <div className="text-center">

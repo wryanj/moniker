@@ -16,21 +16,21 @@
 
     // Use specified controller methods if it hits /api/user
     router
-    .route("/")
-    .get(userController.findAll)
-    .post(userController.create);
+        .route("/")
+            .get(userController.findAll)
+            .post(userController.create);
 
     // Use specified controller methods if it hits /api/user/current
     router
-    .route("/current")
-    .get(userController.findCurrentUser);
+        .route("/current")
+            .get(userController.findCurrentUser);
 
     // Use specified controller methods if it hits /api/user/id
     router
-    .route("/:id")
-    .get(userController.findById)
-    .put(userController.update)
-    .delete(userController.remove);
+        .route("/:id")
+            .get(userController.findById)
+            .put(userController.update)
+            .delete(userController.remove);
     
 /* -------------------------------------------------------------------------- */
 /*                                Export Module                               */

@@ -3,31 +3,38 @@
 /* -------------------------------------------------------------------------- */
 
     const router = require("express").Router();
-    const middlenameController = require("../../controllers/middlenameController.js");
+    const authController = require("../../controllers/authController");
 
 /* -------------------------------------------------------------------------- */
 /*                               Handle Routing                               */
 /* -------------------------------------------------------------------------- */
 
-     /*
+    /*
         Calls methods based on type of axios call used on the path
-        PATH - homeurl/api/middlename...
+        PATH - homeurl/api/auth...
     */
 
-    // Use specified controller methods if it hits /api/middlename
-    router
-    .route("/")
-    .get(middlenameController.findAll)
-    .post(middlenameController.create);
+     // Use specified controller methods if it hits /api/auth/signup
+     router
+        .route("/signup")
+            .post(authController.signup);
 
-    // Use specified controller methods if it hits /api/middlename/id
+    // Use specified controller methods if it hits /api/auth/authcheck
     router
-    .route("/:id")
-    .get(middlenameController.findById)
-    .put(middlenameController.update)
-    .delete(middlenameController.remove);
+       .route("/authcheck")
+           .get(authController.authcheck);
+           
+    // Use specified controller methods if it hits /api/auth/login
+    router
+        .route("/login")
+            .post(authController.login);
+
+    // Use specified controller methods if it hits /api/auth/logout
+    router
+        .route("/logout")
+            .post(authController.logout);
 
 /* -------------------------------------------------------------------------- */
 /*                                Export Module                               */
 /* -------------------------------------------------------------------------- */
-    module.exports = router;  
+    module.exports = router;

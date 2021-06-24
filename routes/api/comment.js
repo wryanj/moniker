@@ -16,16 +16,16 @@
 
     // Use specified controller methods if it hits /api/comment
     router
-    .route("/")
-    .get(commentController.findAll)
-    .post(commentController.create);
+        .route("/")
+            .get(commentController.findAll)
+            .post(commentController.create);
 
     // Used specified controller methods if it hits /api/comment/id 
     router
-    .route("/:id")
-    .get(commentController.findById)
-    .put(commentController.update)
-    .delete(commentController.remove);
+        .route("/:id")
+            .get(commentController.findById)
+            .put(commentController.update)
+            .delete(commentController.remove);
    
     
 
