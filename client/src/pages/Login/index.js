@@ -32,9 +32,11 @@
                 // Hit the API endpoint
                 API.login ({email,password})
                     .then (res => {
-                        window.location = './mynames';
+                        alert(res.data.message);
+                        window.location="./"
                     })
                     .catch(err => {
+                        alert('The passoword or email you have entered is not correct. Please ensure you have entered the correct credentials')
                         console.log(err);
                     })
             }

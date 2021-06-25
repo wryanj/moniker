@@ -87,7 +87,7 @@
 					});
 			};
 			
-			// Conditionally set a logal variable to use in the component rendering conditionals
+			// Conditionally set a isLoggedIn variable based on state to use in the component rendering conditionals
 			const { loggedIn: isLoggedIn } = loggedIn;
 				console.log('loggedIN is set to', loggedIn);
 				console.log('currentUser is set to', currentUser);
@@ -96,33 +96,43 @@
 			return (
 				<Router>
 					<Header>
-						{!isLoggedIn
+						{isLoggedIn
 						 	?
-							 	<></>
-							:
-								<SettingsMenu
+								 <SettingsMenu
 									handleLogout={handleLogout}
 								/>
+							:
+								<></>
 						}
 						<MonikerBrand
 							isLoggedIn={isLoggedIn}
 						/>
-						{!isLoggedIn
+						{isLoggedIn
 						 	?
-								<></>
+							 	<AddNameModal/>	
 							:
-								<AddNameModal/>	
+								<></>
 						}
 					</Header>
 					<Main>
 						<Switch>
-							<Route exact path="/" component={Login}></Route>
 							<Route exact path="/login" component={Login}></Route>
 							<Route exact path="/signup" component={Signup}></Route>
-							<Route exact path="/mynames" component={MyNames}></Route>
-							<Route exact path="/ournames" component={OurNames}></Route>
-							<Route exact path="/build" component={Build}></Route>
-							<Route exact path="/browse" component={Browse}></Route>
+							{isLoggedIn
+								?
+									<>
+										<Route exact path="/" component={MyNames}></Route>
+										<Route exact path="/login" component={Login}></Route>
+										<Route exact path="/signup" component={Signup}></Route>
+										<Route exact path="/ournames" component={OurNames}></Route>
+										<Route exact path="/build" component={Build}></Route>
+										<Route exact path="/browse" component={Browse}></Route>
+									</>
+								:
+									<>
+										<Route exact path="" component={Login}></Route>
+									</>
+							}
 						</Switch>
 					</Main>
 					<Footer>

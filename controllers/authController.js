@@ -89,7 +89,7 @@
                     req.session.save(() => {
                         req.session.user_id = userData.id;
                         req.session.logged_in = true;
-                        res.json({ user: userData, message: 'You are now logged in!' });
+                        res.json({ user: userData, message: 'You are now logged in! Moniker will keep you logged in unless you choose to log out, or if we make updates to the app. Happy naming!' });
                     });
         
                 } 
