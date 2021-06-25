@@ -27,9 +27,6 @@
             const email = document.querySelector('#emailInput').value.trim();
             const password = document.querySelector('#passwordInput').value.trim();
 
-            console.log('email is', email);
-            console.log('password is', password);
-
             // Validate if inputs exist and advance accordingly
             if (email && password) {
                 // Hit the API endpoint

@@ -8,10 +8,12 @@
 /*                              Define Component                              */
 /* -------------------------------------------------------------------------- */
 
-    function MonikerBrand () {
+    function MonikerBrand (props) {
         return (
           <>
-            <h3 className="text-white mb-0">Moniker <span className="fst-italic text-danger">beta</span></h3>
+                <h3 className={!props.isLoggedIn? "text-white mb-0 ms-3" : "text-white mb-0 ms-1"}>
+                    Moniker <span className="fst-italic text-danger">beta</span>
+                </h3>
           </>
         );
     }

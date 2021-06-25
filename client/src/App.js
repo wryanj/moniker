@@ -63,11 +63,6 @@
 				 	});
 			};
 
-			// If logged in, set log status to be logged in (RE CHECK WHAT THIS DOES)
-			const {loggedIn: logStatus} = loggedIn;
-				console.log('loggedIN is set to', loggedIn);
-				console.log('currentUser is set to', currentUser);
-
 			// Handle Setting & Getting Current User
 			function getCurrentUser() {
 				// Call the api get current user method..
@@ -92,16 +87,32 @@
 					});
 			};
 			
-			
+			// Conditionally set a logal variable to use in the component rendering conditionals
+			const { loggedIn: isLoggedIn } = loggedIn;
+				console.log('loggedIN is set to', loggedIn);
+				console.log('currentUser is set to', currentUser);
+
 		/* ---------------------------- Render Component ---------------------------- */
 			return (
 				<Router>
 					<Header>
-						<SettingsMenu
-							handleLogout={handleLogout}
+						{!isLoggedIn
+						 	?
+							 	<></>
+							:
+								<SettingsMenu
+									handleLogout={handleLogout}
+								/>
+						}
+						<MonikerBrand
+							isLoggedIn={isLoggedIn}
 						/>
-						<MonikerBrand/>
-						<AddNameModal/>
+						{!isLoggedIn
+						 	?
+								<></>
+							:
+								<AddNameModal/>	
+						}
 					</Header>
 					<Main>
 						<Switch>
@@ -115,10 +126,14 @@
 						</Switch>
 					</Main>
 					<Footer>
-						<Nav
-							loggedInStatus={loggedIn}
-							currentUser={currentUser}
-						/>
+						{!isLoggedIn
+						 	?
+								<></>
+							:
+								<Nav
+									currentUser={currentUser}
+								/>
+							}
 					</Footer>
 				</Router>
 			);
