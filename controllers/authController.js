@@ -12,11 +12,15 @@
         /* --------------------------- Check Authorization -------------------------- */
             authcheck: async function (req, res) {
 
+                console.log('authCheck controller endpoint hit');
+
                 // When called upon app load, check if there is session logged in data
                 try {
+                    console.log('try block hit in authCheck controller');
                     res.json(req.session.logged_in)
                 }
                 catch (err) {
+                    console.log('catch block it in authcheck');
                     console.log(err);
                     res.status(422).json(err);
                 }
@@ -25,6 +29,8 @@
         /* ------------------------------- Signup User ------------------------------ */
 
             signup: async function (req, res) {
+
+                console.log('signup endpoint hit');
 
                 // When the signup button is pressed and a request is sent to this endpoint...
                 try {
@@ -49,6 +55,8 @@
         /* ------------------------------- Login User ------------------------------- */
         
             login: async function (req, res) {
+
+                console.log('login endpoint hit');
 
                 // When the login button is pressed and a request is sent to this endpoint...
                 try {

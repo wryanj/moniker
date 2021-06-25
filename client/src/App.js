@@ -59,13 +59,14 @@
 					})
 					// If error log error
 				 	.catch(error => {
-
 						console.log(error);
 				 	});
 			};
 
 			// If logged in, set log status to be logged in (RE CHECK WHAT THIS DOES)
 			const {loggedIn: logStatus} = loggedIn;
+				console.log('loggedIN is set to', loggedIn);
+				console.log('currentUser is set to', currentUser);
 
 			// Handle Setting & Getting Current User
 			function getCurrentUser() {
@@ -96,7 +97,9 @@
 			return (
 				<Router>
 					<Header>
-						<SettingsMenu/>
+						<SettingsMenu
+							handleLogout={handleLogout}
+						/>
 						<MonikerBrand/>
 						<AddNameModal/>
 					</Header>
@@ -115,7 +118,6 @@
 						<Nav
 							loggedInStatus={loggedIn}
 							currentUser={currentUser}
-							handleLogout={handleLogout}
 						/>
 					</Footer>
 				</Router>

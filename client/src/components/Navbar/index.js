@@ -9,7 +9,7 @@
 /*                            Define App Component                            */
 /* -------------------------------------------------------------------------- */
   
-    function Navbar() {
+    function Navbar(props) {
         
         return (
             <nav className="navbar navbar-dark py-0 my-0">

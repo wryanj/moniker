@@ -9,7 +9,7 @@
 /* -------------------------------------------------------------------------- */
 
 
-    function SettingsMenu () {
+    function SettingsMenu (props) {
         return (
           <>
 
@@ -24,15 +24,13 @@
                     <h5 className="offcanvas-title text-secondary" id="settingsMenuLabel">Menu</h5>
                     <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-                <div className="offcanvas-body text-secondary">
-                    <ul className="list-group">
-                        <li className="list-group-item active" aria-current="true">Profile</li>
-                        <li className="list-group-item">Alerts</li>
-                        <li className="list-group-item">Invite User</li>
-                        <li className="list-group-item">App Overview</li>
-                        <li className="list-group-item">Submit Feedback</li>
-                        <li className="list-group-item">Logout</li>
-                    </ul>
+                <div className="list-group mx-3">
+                    <a href="#" className="list-group-item list-group-item-action">Profile</a>
+                    <a href="#" className="list-group-item list-group-item-action">Alerts</a>
+                    <a href="#" className="list-group-item list-group-item-action">Invite User</a>
+                    <a href="#" className="list-group-item list-group-item-action">App Overview</a>
+                    <a href="#" className="list-group-item list-group-item-action">Submit Feedback</a>
+                    <a href="/login" className="list-group-item list-group-item-action" onClick={props.handleLogout}>Logout</a>
                 </div>
             </div>
 

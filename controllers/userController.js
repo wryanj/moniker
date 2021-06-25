@@ -37,6 +37,7 @@
     /* -------------------------- Get the current user -------------------------- */
 
         findCurrentUser: async function (req, res) {
+            console.log('findCurrentUser endpoint hit');
             try {
               const userData = await User.findOne({
                 where: { id: req.session.user_id },
