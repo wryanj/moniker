@@ -59,6 +59,7 @@
 					})
 					// If error log error
 				 	.catch(error => {
+
 						console.log(error);
 				 	});
 			};
@@ -101,9 +102,10 @@
 					</Header>
 					<Main>
 						<Switch>
-							<Route exact path="/" component={MyNames}></Route>
+							<Route exact path="/" component={Login}></Route>
 							<Route exact path="/login" component={Login}></Route>
 							<Route exact path="/signup" component={Signup}></Route>
+							<Route exact path="/mynames" component={MyNames}></Route>
 							<Route exact path="/ournames" component={OurNames}></Route>
 							<Route exact path="/build" component={Build}></Route>
 							<Route exact path="/browse" component={Browse}></Route>

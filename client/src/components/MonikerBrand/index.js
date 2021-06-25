@@ -11,7 +11,7 @@
     function MonikerBrand () {
         return (
           <>
-            <h3 className="text-white mb-0">Moniker</h3>
+            <h3 className="text-white mb-0">Moniker <span className="fst-italic text-danger">beta</span></h3>
           </>
         );
     }
