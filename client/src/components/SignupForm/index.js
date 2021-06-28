@@ -27,9 +27,9 @@
                 </div>
                 <div className="mb-2">
                     <div className="text-center fw-bold">
-                        <label htmlFor="InputRole" className="form-label">Gender</label>
+                        <label htmlFor="InputGender" className="form-label">Gender</label>
                     </div>
-                    <select id="InputRole" class="form-select" aria-label="Default select example">
+                    <select id="InputGender" class="form-select" aria-label="Default select example">
                         <option selected></option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
@@ -37,13 +37,13 @@
                 </div>
                 <div className="mb-2">
                     <div className="text-center fw-bold">
-                        <label htmlFor="InputGender" className="form-label">Role</label>
+                        <label htmlFor="InputRole" className="form-label">Role</label>
                     </div>
-                    <select id="InputGender" class="form-select" aria-label="Default select example">
+                    <select id="InputRole" class="form-select" aria-label="Default select example">
                         <option selected></option>
-                        <option value="male">Husband</option>
-                        <option value="female">Wife</option>
-                        <option value="female">Other</option>
+                        <option value="husband">Husband</option>
+                        <option value="wife">Wife</option>
+                        <option value="other">Other</option>
                     </select>
                 </div>
                 <div className="mb-2">

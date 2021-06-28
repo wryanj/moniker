@@ -68,6 +68,23 @@
                         console.log('user created is', user);
                     })
 
+                    // Then create a new user in the db for the family just created
+                    .then(() => {
+                        API.createNewUser(user);
+                        alert('Welcome to the family! You are now setup in moniker')
+                    })
+
+                    // Then log the user in...
+                    .then(() => {
+                        API.login(user.email, user.password)
+                    })
+
+                    // Then replace the location to bring them to mynames
+                    .then(() => {
+                        window.location="./";
+                    })
+
+                    // If there is error anywhere, flag it
                     .catch(err => {
                         alert('Oops! Something failed in the user creation. Please try again!')
                         console.log(err);

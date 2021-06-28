@@ -45,6 +45,11 @@
                     return axios.get("/api/user/current");
                 },
 
+                // Create a new user
+                createNewUser: function(newUser) {
+                    return axios.post("/api/user", newUser)
+                },
+
             /* ------------------------------- Name Routes ------------------------------ */
 
             /* ----------------------------- Comment Routes ----------------------------- */
