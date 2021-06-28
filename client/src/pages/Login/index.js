@@ -36,7 +36,7 @@
                         window.location="./"
                     })
                     .catch(err => {
-                        alert('The passoword or email you have entered is not correct. Please ensure you have entered the correct credentials')
+                        alert('The password or email you have entered is not correct. Please make sure you are entering the proper credentials')
                         console.log(err);
                     })
             }

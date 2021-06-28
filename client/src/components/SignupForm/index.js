@@ -11,22 +11,48 @@
     function SignupForm(props) {
         return (
             <form>
-                <h3 className="mb-4 text-center">Sign Up</h3>
-                <div className="mb-3">
+                <h3 className="mb-3 text-center">Sign Up</h3>
+                <div className="mb-2">
+                    <div className="text-center fw-bold">
+                        <label htmlFor="InputLastName" className="form-label">First Name</label>
+                    </div>
+                    <input type="text" className="form-control" id="InputFirstName" aria-describedby="emailHelp"/>
+                </div>
+                <div className="mb-2">
                     <div className="text-center fw-bold">
                         <label htmlFor="InputLastName" className="form-label">Last Name</label>
                     </div>
                     <input type="text" className="form-control" id="InputLastName" aria-describedby="emailHelp"/>
                     <div id="emailHelp" className="form-text text-center">This will be set as the name of your family</div>
                 </div>
-                <div className="mb-3">
+                <div className="mb-2">
+                    <div className="text-center fw-bold">
+                        <label htmlFor="InputRole" className="form-label">Gender</label>
+                    </div>
+                    <select id="InputRole" class="form-select" aria-label="Default select example">
+                        <option selected></option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div className="mb-2">
+                    <div className="text-center fw-bold">
+                        <label htmlFor="InputGender" className="form-label">Role</label>
+                    </div>
+                    <select id="InputGender" class="form-select" aria-label="Default select example">
+                        <option selected></option>
+                        <option value="male">Husband</option>
+                        <option value="female">Wife</option>
+                        <option value="female">Other</option>
+                    </select>
+                </div>
+                <div className="mb-2">
                     <div className="text-center fw-bold">
                         <label htmlFor="InputEmail" className="form-label">Email</label>
                     </div>
                     <input type="email" className="form-control" id="InputEmail" aria-describedby="emailHelp"/>
-                    <div id="emailHelp" className="form-text text-center">This will be your username for future logins</div>
                 </div>
-                <div className="mb-3">
+                <div className="mb-2">
                     <div className="text-center fw-bold">
                         <label htmlFor="InputPassword" className="form-label">Password</label>
                     </div>
@@ -34,7 +60,7 @@
                     <div id="emailHelp" className="form-text text-center">Pasword must be 8 characters or longer</div>
                 </div>
                 <div className="text-center mt-4">
-                    <button type="submit" className="btn btn-secondary">Submit</button>
+                    <button type="submit" onClick={props.handleSignup} className="btn btn-sm btn-secondary">Submit</button>
                 </div>
             </form>
         );

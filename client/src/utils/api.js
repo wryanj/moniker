@@ -34,6 +34,10 @@
         /* -------------------------------------------------------------------------- */
 
             /* ------------------------------ Family Routes ----------------------------- */
+                // Create a new family
+                createNewFamily: function(newFamily) {
+                    return axios.post("/api/family", newFamily)
+                },
 
             /* ------------------------------- User Routes ------------------------------ */
                 // Get the current (logged in) user
