@@ -49,7 +49,6 @@
                 
                     // Take the response (created family) and get the family id
                     .then (res => {
-                        console.log('response from family creation is', res);
                         createdFamilyId = res.data.id;
                     })
 
@@ -65,19 +64,18 @@
                             email: email,
                             password: password
                         }
-                        console.log('user created is', user);
                     })
 
                     // Then create a new user in the db for the family just created
                     .then(() => {
                         API.createNewUser(user);
-                        alert('Welcome to the family! You are now setup in moniker')
+                        alert('Welcome to the family! You are now setup in moniker. Please login on the next screen using your email, and the password you just created')
                     })
 
-                    // Then log the user in...
-                    .then(() => {
-                        API.login(user.email, user.password)
-                    })
+                    // // Then log the user in...(Not working so commented out)
+                    // .then(() => {
+                    //     API.login(user.email, user.password)
+                    // })
 
                     // Then replace the location to bring them to mynames
                     .then(() => {

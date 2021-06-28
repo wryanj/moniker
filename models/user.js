@@ -46,7 +46,7 @@
                 type: DataTypes.STRING,
                 allowNull: false,
                 validate: {
-                    isIn: [['husband', 'wife', 'guest']],
+                    isIn: [['husband', 'wife', 'other']],
                 },
             },
             is_admin: {
