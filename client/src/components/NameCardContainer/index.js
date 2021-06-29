@@ -14,7 +14,7 @@
 
     /* ------------------------------- Get Context ------------------------------ */
         const currentUserContext = useContext(CurrentUserContext);
-            console.log('current user from current user context is', currentUserContext);
+            console.log('current user on namecard container from current user context is', currentUserContext);
 
     /* ---------------------------- Component Render ---------------------------- */
         return (

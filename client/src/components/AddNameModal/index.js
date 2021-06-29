@@ -2,7 +2,8 @@
 /*                             Import Dependencies                            */
 /* -------------------------------------------------------------------------- */
 
-    import React, { useEffect, useState } from "react"; 
+    import React, { useContext, useEffect, useState } from "react"; 
+    import CurrentUserContext from "../../utils/CurrentUserContext";
     import {Modal,Button} from "react-bootstrap";
     import API from "../../utils/API";
     import MyUtils from "../../utils/MyUtils";
@@ -13,6 +14,12 @@
 /* -------------------------------------------------------------------------- */
 
     function AddNameModal() {
+
+        /* ------------------------------- Get Context ------------------------------ */
+
+            // Get provided information about the current user and associated data
+            const currentUserContext = useContext(CurrentUserContext);
+                console.log('current user on add name modal from current user context is', currentUserContext);
 
         /* ---------------------------------- State --------------------------------- */
 
@@ -43,8 +50,8 @@
                 let newName = 
                     {
                         // {id} for this name will be auto-created in SQL
-                        user_id: 4, // hard coded for initial create testing
-                        family_id: 1, // hard coded for initial create testing
+                        user_id: currentUserContext.id, 
+                        family_id: currentUserContext.family_id,
                         name: MyUtils.capitalizeFirstLetter(Name.current.value),
                         gender: NameGender.current.value,
                         type: NameType.current.value,
@@ -55,7 +62,7 @@
                 // If the required inputs are there, add the name to the db
                 if (newName.name !=="" && newName.type!=null && newName.gender !=null) {
                     API.createNewName(newName)
-                        .then(console.log('newname added, newName'))
+                        .then(alert('New Name Added!'))
                         .then(closeModal)
                         .then(window.location.reload())
                         .catch(err => {
