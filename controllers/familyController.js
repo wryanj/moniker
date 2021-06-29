@@ -108,6 +108,7 @@
         /* ----------------------------- Delete A Family ---------------------------- */
 
           remove: async function (req, res) {
+            console.log('family remove controller endpoint hit');
             try {
               const familyData = await Family.destroy({
                 where: {

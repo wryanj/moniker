@@ -29,7 +29,7 @@
                     <div className="text-center fw-bold">
                         <label htmlFor="InputGender" className="form-label">Gender</label>
                     </div>
-                    <select id="InputGender" class="form-select" aria-label="Default select example">
+                    <select id="InputGender" className="form-select" aria-label="Default select example">
                         <option selected></option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
@@ -40,7 +40,7 @@
                     <div className="text-center fw-bold">
                         <label htmlFor="InputRole" className="form-label">Role</label>
                     </div>
-                    <select id="InputRole" class="form-select" aria-label="Default select example">
+                    <select id="InputRole" className="form-select" aria-label="Default select example">
                         <option selected></option>
                         <option value="husband">Husband</option>
                         <option value="wife">Wife</option>

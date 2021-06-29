@@ -39,7 +39,7 @@
                 type: DataTypes.STRING,
                 allowNull: false,
                 validate: {
-                    isIn: [['male', 'female', 'other']],
+                    isIn: [['male', 'female', 'other']], 
                 },
             },
             role: {

@@ -41,8 +41,8 @@
             // Create a blank object that will eventually be the new user object
             let user = {};
 
-            // Validate if inputs exist and advance accordingly
-            if (lastName && email && password) {
+            // If all required inputs are present....
+            if (lastName && firstName && email && password && gender && role) {
 
                 // First create a family
                 API.createNewFamily(family)
@@ -68,26 +68,53 @@
 
                     // Then create a new user in the db for the family just created
                     .then(() => {
-                        API.createNewUser(user);
-                        alert('Welcome to the family! You are now setup in moniker. Please login on the next screen using your email, and the password you just created')
+
+                        API.createNewUser(user)
+
+                            // If the create new user call to server returns a good response (no error)....
+                            .then(res => {
+
+                                // Console log the response for dev purpose
+                                console.log('created user object is', res);
+
+                                // Greet the user with an alert...
+                                alert(`Congratulation ${firstName}! Your now part of the moniker family! Please use your login credentials to sign in on the next page. Happy naming!`);
+
+                                // And redirect them to the login screen...
+                                window.location="./";
+                            })
+
+                            // If there is an error in the create new user process, catch it and delete the created family so there is no duplicates upon retry
+                            .catch(err => {
+
+                                // Console log the error
+                                console.log('error in create new user catch block is', err.response);
+        
+                                // Then delete the family I recently created
+                                API.deleteFamily(createdFamilyId)
+
+                                    // Console log that response for dev purpose
+                                    .then(res => {
+                                        console.log('rollback (delete) created family response', res);
+                                        alert('Oops! Something went wrong in the create new user process. Please try again');
+                                    })
+                
+                                    // If error catch it
+                                    .catch(err => {
+                                        console.log(err.response);
+                                        alert('Oops! Something failed in the rollback (delete) of family creation');
+                                    });
+                            })
                     })
 
-                    // // Then log the user in...(Not working so commented out)
-                    // .then(() => {
-                    //     API.login(user.email, user.password)
-                    // })
-
-                    // Then replace the location to bring them to mynames
-                    .then(() => {
-                        window.location="./";
-                    })
-
-                    // If there is error anywhere, flag it
+                    // If there is error when creating a family....
                     .catch(err => {
-                        alert('Oops! Something failed in the user creation. Please try again!')
                         console.log(err);
+                        alert('Oops! Something failed in the family creation process Please try again!')
                     })
             }
+
+            // Else if any information is missing from the form upon hitting the submit button...
             else {
                 alert('Please ensure you have entered all the required information!')
             }

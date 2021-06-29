@@ -36,7 +36,12 @@
             /* ------------------------------ Family Routes ----------------------------- */
                 // Create a new family
                 createNewFamily: function(newFamily) {
-                    return axios.post("/api/family", newFamily)
+                    return axios.post("/api/family", newFamily);
+                },
+
+                // Delete a family by id
+                deleteFamily: function(id) {
+                    return axios.delete("/api/family/" + id);
                 },
 
             /* ------------------------------- User Routes ------------------------------ */
@@ -47,7 +52,7 @@
 
                 // Create a new user
                 createNewUser: function(newUser) {
-                    return axios.post("/api/user", newUser)
+                    return axios.post("/api/user", newUser);
                 },
 
             /* ------------------------------- Name Routes ------------------------------ */
