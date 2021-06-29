@@ -37,17 +37,14 @@
 
                 // Manage capture, validation, and posting of a newly added name
                 function addName () {
-
-                    // Set variable to hold output of capitalized name, and use to set name property of object for db post
-                    const capitalizedName = MyUtils.capitalizeFirstLetter(Name.current.value);
-                            
+      
                     // Set the name object for the db post transaction
                     let newName = 
                         {
                             // id is auto created in sql
                             // user_id: ENTER CURRENT USER ID,
                             // family_id: ENTER CURRENT USER'S FAMILY ID,
-                            name: capitalizedName,
+                            name: MyUtils.capitalizeFirstLetter(Name.current.value),
                             gender: NameGender.current.value,
                             type: NameType.current.value,
                             // user_rank: FIGURE OUT HOW TO POPULATE

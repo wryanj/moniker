@@ -8,6 +8,7 @@
     import Row from "../../components/Row";
     import Col from "../../components/Column";
     import SignupForm from "../../components/SignupForm";
+    import MyUtils from "../../utils/MyUtils";
 
 
 /* -------------------------------------------------------------------------- */
@@ -17,7 +18,7 @@
     function Signup() {
 
         /* ---------------------------------- Logic --------------------------------- */
-         function handleSignup (event) {
+        function handleSignup (event) {
 
             // Prevent Default
             event.preventDefault();
@@ -32,7 +33,7 @@
 
             // Create an object to post to the Family DB (Create family before user)
             const family = {
-                name: lastName
+                name: MyUtils.capitalizeFirstLetter(lastName)
             };
 
             // Create a variable to hold the newly created family id
@@ -56,8 +57,8 @@
                     .then(() => {
                         user = {
                             family_id: createdFamilyId, // this should be the id of the created family in the above reply
-                            first_name: firstName,
-                            last_name: lastName,
+                            first_name: MyUtils.capitalizeFirstLetter(firstName),
+                            last_name: MyUtils.capitalizeFirstLetter(lastName),
                             gender: gender,
                             role: role,
                             is_admin: true,
@@ -78,7 +79,7 @@
                                 console.log('created user object is', res);
 
                                 // Greet the user with an alert...
-                                alert(`Congratulation ${firstName}! Your now part of the moniker family! Please use your login credentials to sign in on the next page. Happy naming!`);
+                                alert(`Welcome ${MyUtils.capitalizeFirstLetter(firstName)}! Your now part of the moniker family. Please use your login credentials to sign in on the next page. Happy naming!`);
 
                                 // And redirect them to the login screen...
                                 window.location="./";

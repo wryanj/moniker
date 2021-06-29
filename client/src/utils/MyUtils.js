@@ -9,7 +9,7 @@
         /*                                   General                                  */
         /* -------------------------------------------------------------------------- */
 
-            // Check for authorization
+            // Capitalize the first letter of a string name
             capitalizeFirstLetter: function (currentName) {
                 return currentName.charAt(0).toUpperCase() + currentName.slice(1)
             },
