@@ -4,6 +4,7 @@
 
     import React, { useEffect, useState } from "react"; 
     import {Modal,Button} from "react-bootstrap";
+    import MyUtils from "../../utils/MyUtils";
     
 
 /* -------------------------------------------------------------------------- */
@@ -37,15 +38,8 @@
                 // Manage capture, validation, and posting of a newly added name
                 function addName () {
 
-                    // Ensure name entry has a capital first letter
-
-                        // Declare a function to make name capitalized
-                        function capitalizeName (currentName) {
-                            return currentName.charAt(0).toUpperCase() + currentName.slice(1)
-                        };
-
-                        // Set variable to hold output of capitalized name, and use to set name property of object for db post
-                        const capitalizedName = capitalizeName(Name.current.value);
+                    // Set variable to hold output of capitalized name, and use to set name property of object for db post
+                    const capitalizedName = MyUtils.capitalizeFirstLetter(Name.current.value);
                             
                     // Set the name object for the db post transaction
                     let newName = 
