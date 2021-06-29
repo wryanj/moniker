@@ -52,26 +52,21 @@
                         family_rank: 1 // hard coded until I figure out how to use
                     };
 
-                // If the required inputs are there, move to add the name in the db
+                // If the required inputs are there, add the name to the db
                 if (newName.name !=="" && newName.type!=null && newName.gender !=null) {
-                    executePost();
-                }
-
-                // If inputs are missing, alert the user to fill out required information
-                else {
-                    alert("Please make sure you have entered or selected values for all required fields!")
-                };
-
-                // Declare Function For Executing New Name Post
-                function executePost () {   
-                    console.log('newName in execute post function', newName)
                     API.createNewName(newName)
+                        .then(console.log('newname added, newName'))
                         .then(closeModal)
                         .then(window.location.reload())
                         .catch(err => {
                             console.log(err);
                             alert('Oops! We were not able to add this name!');
-                        });
+                    });
+                }
+
+                // If inputs are missing, alert the user to fill out required information
+                else {
+                    alert("Please make sure you have entered or selected values for all required fields!")
                 };
             };
                             
@@ -88,7 +83,7 @@
 
                     {/* Modal Window Hidden Until Button Selection */}
                     <Modal show={visability} onHide={closeModal} className="mt-3">
-                        
+
                         <Modal.Header>
                             <Modal.Title>Add Name</Modal.Title>
                         </Modal.Header>
