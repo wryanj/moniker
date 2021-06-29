@@ -56,6 +56,10 @@
                 },
 
             /* ------------------------------- Name Routes ------------------------------ */
+                // Create a new name on the DB
+                createNewName: function (newName) {
+                    return axios.post("/api/name", newName);
+                },
 
             /* ----------------------------- Comment Routes ----------------------------- */
         

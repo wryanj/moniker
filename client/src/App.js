@@ -91,7 +91,7 @@
 			const { loggedIn: isLoggedIn } = loggedIn;
 				console.log('loggedIN is set to', loggedIn);
 				console.log('currentUser is set to', currentUser);
-
+	
 		/* ---------------------------- Render Component ---------------------------- */
 			return (
 				<Router>

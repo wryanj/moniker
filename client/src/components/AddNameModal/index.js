@@ -4,6 +4,7 @@
 
     import React, { useEffect, useState } from "react"; 
     import {Modal,Button} from "react-bootstrap";
+    import API from "../../utils/API";
     import MyUtils from "../../utils/MyUtils";
     
 
@@ -18,6 +19,13 @@
             // Visability state For Add Name Modal
             const [visability, setVisablity] = useState(false)
 
+        /* ------------------------------- References ------------------------------- */
+
+            // Define references to get values from component for handleAddName function
+            let Name = React.createRef();
+            let NameType = React.createRef();
+            let NameGender = React.createRef();
+
         /* ---------------------------------- Logic --------------------------------- */
 
             // Manage opening and closing of Add Name Modal via state change
@@ -28,52 +36,44 @@
                 setVisablity(false)
             };
 
-            // Manage cancelling capturing, validating, and posting a new name via Add Name Modal
+            // Handle Addition of New Name Via Add Name Modal
+            function handleAddName () {
 
-                // Define needed references
-                let Name = React.createRef();
-                let NameType = React.createRef();
-                let NameGender = React.createRef();
-
-                // Manage capture, validation, and posting of a newly added name
-                function addName () {
-      
-                    // Set the name object for the db post transaction
-                    let newName = 
-                        {
-                            // id is auto created in sql
-                            // user_id: ENTER CURRENT USER ID,
-                            // family_id: ENTER CURRENT USER'S FAMILY ID,
-                            name: MyUtils.capitalizeFirstLetter(Name.current.value),
-                            gender: NameGender.current.value,
-                            type: NameType.current.value,
-                            // user_rank: FIGURE OUT HOW TO POPULATE
-                            // family_rank is left null until promoted to family board 
-                        };
-                            console.log('newName for db submission read as', newName); // FOR TESTING
-
-                    // Validate all require inputs are completed
-                    if (newName.name !=="" && newName.gender !=null && newName.type!=null) {
-                        console.log('trigger to execute post of added name'); // FOR TESTING - confirms call of executePost
-                        /*
-                        executePost();
-                        */
-                    }
-                    else {
-                        alert("Please make sure you have entered or selected values for all required fields!")
+                // Set the name object for the db post transaction
+                let newName = 
+                    {
+                        // {id} for this name will be auto-created in SQL
+                        user_id: 4, // hard coded for initial create testing
+                        family_id: 1, // hard coded for initial create testing
+                        name: MyUtils.capitalizeFirstLetter(Name.current.value),
+                        gender: NameGender.current.value,
+                        type: NameType.current.value,
+                        user_rank: 1, // hard coded until I figure out how to use
+                        family_rank: 1 // hard coded until I figure out how to use
                     };
 
-                    /*
-                    // Post the new name to the db
-                    function executePost () {   
-                        API.addName(newName)
-                            .then(closeModal)
-                            .then(window.location.reload())
-                            .catch(err=>console.log(err));
-                    };
-                    */
-                    
+                // If the required inputs are there, move to add the name in the db
+                if (newName.name !=="" && newName.type!=null && newName.gender !=null) {
+                    executePost();
+                }
+
+                // If inputs are missing, alert the user to fill out required information
+                else {
+                    alert("Please make sure you have entered or selected values for all required fields!")
                 };
+
+                // Declare Function For Executing New Name Post
+                function executePost () {   
+                    console.log('newName in execute post function', newName)
+                    API.createNewName(newName)
+                        .then(closeModal)
+                        .then(window.location.reload())
+                        .catch(err => {
+                            console.log(err);
+                            alert('Oops! We were not able to add this name!');
+                        });
+                };
+            };
                             
         /* ---------------------------- Render Component ---------------------------- */
             return (
@@ -88,9 +88,11 @@
 
                     {/* Modal Window Hidden Until Button Selection */}
                     <Modal show={visability} onHide={closeModal} className="mt-3">
+                        
                         <Modal.Header>
                             <Modal.Title>Add Name</Modal.Title>
                         </Modal.Header>
+
                         <Modal.Body>
                             <form>
                                 <h6 className= "text-center">Name</h6>
@@ -113,16 +115,18 @@
                                     </div>
                             </form>
                         </Modal.Body>
+
                         <Modal.Footer>
                             <div className="d-flex">
                                 <div>
                                     <Button className="btn-secondary px-2 mx-2" onClick={closeModal}>Cancel</Button>
                                 </div>
                                 <div>
-                                    <Button className="btn-success px-2" onClick={addName}>Add</Button>
+                                    <Button className="btn-success px-2" onClick={handleAddName}>Add</Button>
                                 </div>
                             </div>
                         </Modal.Footer>
+
                     </Modal>
 
                 </div>
