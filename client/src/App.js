@@ -2,9 +2,10 @@
 /*                             Import Dependencies                            */
 /* -------------------------------------------------------------------------- */
 
-	import React, { useEffect, useState } from 'react';
+	import React, { useContext, useEffect, useState } from 'react';
 	import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 	import API from './utils/API';
+	import CurrentUserContext from './utils/CurrentUserContext';
 	import Header from './components/Header';
 	import SettingsMenu from './components/SettingsMenu';
 	import MonikerBrand from './components/MonikerBrand';
@@ -95,56 +96,58 @@
 		/* ---------------------------- Render Component ---------------------------- */
 			return (
 				<Router>
-					<Header>
-						{isLoggedIn
-						 	?
-								 <SettingsMenu
-									handleLogout={handleLogout}
-								/>
-							:
-								<></>
-						}
-						<MonikerBrand
-							isLoggedIn={isLoggedIn}
-						/>
-						{isLoggedIn
-						 	?
-							 	<AddNameModal/>	
-							:
-								<></>
-						}
-					</Header>
-					<Main>
-						<Switch>
-							<Route exact path="/login" component={Login}></Route>
-							<Route exact path="/signup" component={Signup}></Route>
+					<CurrentUserContext.Provider value={currentUser}> 
+						<Header>
 							{isLoggedIn
 								?
-									<>
-										<Route exact path="/" component={MyNames}></Route>
-										<Route exact path="/login" component={Login}></Route>
-										<Route exact path="/signup" component={Signup}></Route>
-										<Route exact path="/ournames" component={OurNames}></Route>
-										<Route exact path="/build" component={Build}></Route>
-										<Route exact path="/browse" component={Browse}></Route>
-									</>
+									<SettingsMenu
+										handleLogout={handleLogout}
+									/>
 								:
-									<>
-										<Route exact path="" component={Login}></Route>
-									</>
+									<></>
 							}
-						</Switch>
-					</Main>
-					<Footer>
-						{!isLoggedIn
-						 	?
-								<></>
-							:
-								<Nav
-									currentUser={currentUser}
-								/>
+							<MonikerBrand
+								isLoggedIn={isLoggedIn}
+							/>
+							{isLoggedIn
+								?
+									<AddNameModal/>	
+								:
+									<></>
 							}
-					</Footer>
+						</Header>
+						<Main>
+							<Switch>
+								<Route exact path="/login" component={Login}></Route>
+								<Route exact path="/signup" component={Signup}></Route>
+								{isLoggedIn
+									?
+										<>
+											<Route exact path="/" component={MyNames}></Route>
+											<Route exact path="/login" component={Login}></Route>
+											<Route exact path="/signup" component={Signup}></Route>
+											<Route exact path="/ournames" component={OurNames}></Route>
+											<Route exact path="/build" component={Build}></Route>
+											<Route exact path="/browse" component={Browse}></Route>
+										</>
+									:
+										<>
+											<Route exact path="" component={Login}></Route>
+										</>
+								}
+							</Switch>
+						</Main>
+						<Footer>
+							{!isLoggedIn
+								?
+									<></>
+								:
+									<Nav
+										currentUser={currentUser}
+									/>
+								}
+						</Footer>
+					</CurrentUserContext.Provider>
 				</Router>
 			);
 	}

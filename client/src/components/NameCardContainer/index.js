@@ -2,7 +2,8 @@
 /*                             Import Dependencies                            */
 /* -------------------------------------------------------------------------- */
 
-    import React, { useEffect, useState } from "react";
+    import React, { useContext, useEffect, useState } from "react";
+    import CurrentUserContext from "../../utils/CurrentUserContext";
     import NameCard from "../NameCard";
   
 /* -------------------------------------------------------------------------- */
@@ -11,9 +12,9 @@
 
     function NameCardContainer(props) {
 
-    /* ------------------------------ Console Logs ------------------------------ */
-
-        // console.log('Props on NameCardContainer', props)
+    /* ------------------------------- Get Context ------------------------------ */
+        const currentUserContext = useContext(CurrentUserContext);
+            console.log('current user from current user context is', currentUserContext);
 
     /* ---------------------------- Component Render ---------------------------- */
         return (
