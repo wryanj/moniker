@@ -2,7 +2,7 @@
 /*                             Import Dependencies                            */
 /* -------------------------------------------------------------------------- */
 
-	import React, { useContext, useEffect, useState } from 'react';
+	import React, {useEffect, useState } from 'react';
 	import { BrowserRouter as Router, Route, Switch, useLocation} from "react-router-dom";
 	import API from './utils/API';
 	import CurrentUserContext from './utils/CurrentUserContext';
@@ -37,6 +37,9 @@
 
 			// State for the current user's liked names - array
 			const [myNames, setMyNames] = useState([]);
+
+			// Establish a path location to reference in conditoinal rendering below
+			const pathlocation=useLocation();
 
 		/* --------------------------------- Effect --------------------------------- */
 
@@ -108,12 +111,12 @@
 			
 			// Conditionally set a isLoggedIn variable based on state to use in the component rendering conditionals
 			const { loggedIn: isLoggedIn } = loggedIn;
-				console.log('loggedIn is set to', loggedIn);
-				console.log('currentUser is set to', currentUser);
+			
+			
 
 		/* ---------------------------- Render Component ---------------------------- */
 			return (
-				<Router>
+				<>
 					<CurrentUserContext.Provider value={currentUser}>
 						<MyNamesContext.Provider value={{myNames, setMyNames}}>
 							<Header>
@@ -128,7 +131,7 @@
 								<MonikerBrand
 									isLoggedIn={isLoggedIn}
 								/>
-								{isLoggedIn // Second visability condition check happens within add modal component based on pathname!
+								{(isLoggedIn) && (pathlocation.pathname==="/") // Only show for logged in users on MyNames Page
 									?
 										<AddNameModal/>	
 									:
@@ -166,7 +169,7 @@
 							</Footer>
 						</MyNamesContext.Provider> 
 					</CurrentUserContext.Provider>
-				</Router>
+				</>
 			);
 	}
 

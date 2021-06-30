@@ -18,7 +18,7 @@
         // Get context from current user (entire user object)
         const currentUser = useContext(CurrentUserContext); // May not need here, leaving for now in case
 
-        // Get context specifically for the current Users's Liked Names (this context may be changed here, or from other parts of the app)
+        // Get context specifically for the current Users's Liked Names (this context may be changed here, or from other parts of the app using setMyNames)
         const {myNames, setMyNames} = useContext(MyNamesContext);
 
     /* ---------------------------------- Render Controls ----------------------- */
