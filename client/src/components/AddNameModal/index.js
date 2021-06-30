@@ -3,18 +3,18 @@
 /* -------------------------------------------------------------------------- */
 
     import React, { useContext, useEffect, useState } from "react"; 
+    import {useLocation} from 'react-router-dom';
     import CurrentUserContext from "../../utils/CurrentUserContext";
     import MyNamesContext from "../../utils/MyNamesContext";
     import {Modal,Button} from "react-bootstrap";
     import API from "../../utils/API";
     import MyUtils from "../../utils/MyUtils";
-    
 
 /* -------------------------------------------------------------------------- */
 /*                              Define Component                              */
 /* -------------------------------------------------------------------------- */
 
-    function AddNameModal() {
+    function AddNameModal(props) {
 
         /* ------------------------------- Context ---------------------------------- */
 
@@ -37,6 +37,26 @@
             let NameGender = React.createRef();
 
         /* ---------------------------------- Logic --------------------------------- */
+
+            // Manage whether to show the add modal button or not based on which page (pathname) logged in user is at
+
+                // Set a variable to use Router locatoin as it changes
+                const pathlocation=useLocation()
+
+                // Define a handler function to feed to the button classname
+                function handleComponentDisplay () {
+
+                    // If pathname is / (home, or mynames) add nothing to the classname
+                    if (pathlocation.pathname==="/") {
+                        return("")
+                    }
+
+                    // Otherwise add d-none so it stays hidden
+                    else {
+                        return("d-none")
+                    }
+                }
+                console.log('output of handleComponentDisplay function is', handleComponentDisplay());
 
             // Manage opening and closing of Add Name Modal via state change
             function openModal () {
@@ -85,7 +105,7 @@
                 <div className="ms-auto">
 
                     {/* Modal Button */}
-                    <button  className="btn btn-sm text-success mx-3" variant="primary" onClick={openModal}>
+                    <button  className={`${handleComponentDisplay()} btn btn-sm text-success mx-3`} variant="primary" onClick={openModal}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                             <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
                         </svg>

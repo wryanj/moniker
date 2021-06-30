@@ -2,8 +2,8 @@
 /*                             Import Dependencies                            */
 /* -------------------------------------------------------------------------- */
 
-	import React, { useEffect, useState } from 'react';
-	import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+	import React, { useContext, useEffect, useState } from 'react';
+	import { BrowserRouter as Router, Route, Switch, useLocation} from "react-router-dom";
 	import API from './utils/API';
 	import CurrentUserContext from './utils/CurrentUserContext';
 	import MyNamesContext from './utils/MyNamesContext';
@@ -82,6 +82,11 @@
 						setCurrentUser(res.data);
 						setMyNames(res.data.userLikedNames);
 				  	})
+
+					// If error log error
+				 	.catch(error => {
+						console.log(error);
+				 	});
 			};
 			
 			// Handle Log out
@@ -123,7 +128,7 @@
 								<MonikerBrand
 									isLoggedIn={isLoggedIn}
 								/>
-								{isLoggedIn
+								{isLoggedIn // Second visability condition check happens within add modal component based on pathname!
 									?
 										<AddNameModal/>	
 									:
