@@ -39,29 +39,21 @@
         /* ---------------------------------- Logic --------------------------------- */
 
             // Manage whether to show the add modal button or not based on which page (pathname) logged in user is at
-
-                // Set a variable to use Router locatoin as it changes
-                const pathlocation=useLocation()
-
-                // Define a handler function to feed to the button classname
-                function handleComponentDisplay () {
-
-                    // If pathname is / (home, or mynames) add nothing to the classname
-                    if (pathlocation.pathname==="/") {
-                        return("")
-                    }
-
-                    // Otherwise add d-none so it stays hidden
-                    else {
-                        return("d-none")
-                    }
+            const pathlocation=useLocation()
+            function handleComponentDisplay () {
+                if (pathlocation.pathname==="/") {
+                    return("")
                 }
-                console.log('output of handleComponentDisplay function is', handleComponentDisplay());
+                else {
+                    return("d-none")
+                }
+            };
 
             // Manage opening and closing of Add Name Modal via state change
             function openModal () {
                 setVisablity(true)
             };
+            
             function closeModal () {
                 setVisablity(false)
             };
