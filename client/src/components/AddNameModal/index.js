@@ -3,22 +3,26 @@
 /* -------------------------------------------------------------------------- */
 
     import React, { useContext, useEffect, useState } from "react"; 
+    import {useLocation} from 'react-router-dom';
     import CurrentUserContext from "../../utils/CurrentUserContext";
+    import MyNamesContext from "../../utils/MyNamesContext";
     import {Modal,Button} from "react-bootstrap";
     import API from "../../utils/API";
     import MyUtils from "../../utils/MyUtils";
-    
 
 /* -------------------------------------------------------------------------- */
 /*                              Define Component                              */
 /* -------------------------------------------------------------------------- */
 
-    function AddNameModal() {
+    function AddNameModal(props) {
 
         /* ------------------------------- Context ---------------------------------- */
 
             // Get provided information about the current user and associated data
-            const currentUserContext = useContext(CurrentUserContext);
+            const currentUser = useContext(CurrentUserContext);
+
+            // Get provided info about user liked name array to update on additoin without refresh
+            const {myNames, setMyNames} = useContext(MyNamesContext);
 
         /* ---------------------------------- State --------------------------------- */
 
@@ -49,8 +53,8 @@
                 let newName = 
                     {
                         // {id} for this name will be auto-created in SQL
-                        user_id: currentUserContext.id, 
-                        family_id: currentUserContext.family_id,
+                        user_id: currentUser.id, 
+                        family_id: currentUser.family_id,
                         name: MyUtils.capitalizeFirstLetter(Name.current.value),
                         gender: NameGender.current.value,
                         type: NameType.current.value,

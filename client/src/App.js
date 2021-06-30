@@ -2,10 +2,11 @@
 /*                             Import Dependencies                            */
 /* -------------------------------------------------------------------------- */
 
-	import React, { useEffect, useState } from 'react';
-	import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+	import React, {useEffect, useState } from 'react';
+	import { BrowserRouter as Router, Route, Switch, useLocation} from "react-router-dom";
 	import API from './utils/API';
 	import CurrentUserContext from './utils/CurrentUserContext';
+	import MyNamesContext from './utils/MyNamesContext';
 	import Header from './components/Header';
 	import SettingsMenu from './components/SettingsMenu';
 	import MonikerBrand from './components/MonikerBrand';
@@ -28,11 +29,17 @@
 
 		/* ---------------------------------- State --------------------------------- */
 
-			// State for current (unknown by default)
+			// State for whether a user is logged in or not (logged out by default)
+			const [loggedIn, setLoggedIn] = useState({loggedIn: false});	
+
+			// State for current user  (unknown by default) - object
 			const [currentUser, setCurrentUser] = useState({});
 
-			// State for whether a user is logged in or not (logged out by default)
-			const [loggedIn, setLoggedIn] = useState({loggedIn: false});
+			// State for the current user's liked names - array
+			const [myNames, setMyNames] = useState([]);
+
+			// Establish a path location to reference in conditoinal rendering below
+			const pathlocation=useLocation();
 
 		/* --------------------------------- Effect --------------------------------- */
 
@@ -50,14 +57,17 @@
 
 			// Handle Authentication & Logged In state
 			function withAuth() {
+
 				// Call api check auth method...
 				API.checkAuth()
+
 					// Then if there is data in the response (logged in or not) set it as the state
 				  	.then(response => {
 						if (response.data) {
 							setLoggedIn({ loggedIn: response.data });
 						};
 					})
+
 					// If error log error
 				 	.catch(error => {
 						console.log(error);
@@ -66,22 +76,33 @@
 
 			// Handle Setting & Getting Current User
 			function getCurrentUser() {
+
 				// Call the api get current user method..
 				API.getCurrentUser()
-					// then set the current user state to the currente user
+
+					// then set the current user state to the currente user alaong with their liked names
 					.then(res => {
 						setCurrentUser(res.data);
+						setMyNames(res.data.userLikedNames);
 				  	})
+
+					// If error log error
+				 	.catch(error => {
+						console.log(error);
+				 	});
 			};
 			
 			// Handle Log out
 			function handleLogout() {
+
 				// Call the api logout method...
 				API.logout()
+
 					// Then when a response is received, set logged in state back to false
 					.then(response => {
 						setLoggedIn({ loggedIn: false });
 					})
+
 					// If error log error
 					.catch(error => {
 						console.log(error);
@@ -90,63 +111,65 @@
 			
 			// Conditionally set a isLoggedIn variable based on state to use in the component rendering conditionals
 			const { loggedIn: isLoggedIn } = loggedIn;
-				console.log('loggedIN is set to', loggedIn);
-				console.log('currentUser is set to', currentUser);
-	
+			
+			
+
 		/* ---------------------------- Render Component ---------------------------- */
 			return (
-				<Router>
-					<CurrentUserContext.Provider value={currentUser}> 
-						<Header>
-							{isLoggedIn
-								?
-									<SettingsMenu
-										handleLogout={handleLogout}
-									/>
-								:
-									<></>
-							}
-							<MonikerBrand
-								isLoggedIn={isLoggedIn}
-							/>
-							{isLoggedIn
-								?
-									<AddNameModal/>	
-								:
-									<></>
-							}
-						</Header>
-						<Main>
-							<Switch>
-								<Route exact path="/login" component={Login}></Route>
-								<Route exact path="/signup" component={Signup}></Route>
+				<>
+					<CurrentUserContext.Provider value={currentUser}>
+						<MyNamesContext.Provider value={{myNames, setMyNames}}>
+							<Header>
 								{isLoggedIn
 									?
-										<>
-											<Route exact path="/" component={MyNames}></Route>
-											<Route exact path="/login" component={Login}></Route>
-											<Route exact path="/signup" component={Signup}></Route>
-											<Route exact path="/ournames" component={OurNames}></Route>
-											<Route exact path="/build" component={Build}></Route>
-											<Route exact path="/browse" component={Browse}></Route>
-										</>
+										<SettingsMenu
+											handleLogout={handleLogout}
+										/>
 									:
-										<>
-											<Route exact path="" component={Login}></Route>
-										</>
+										<></>
 								}
-							</Switch>
-						</Main>
-						<Footer>
-							{isLoggedIn
-								?
-									<Nav/>
-								:
-									<></>
-							}
-						</Footer>
+								<MonikerBrand
+									isLoggedIn={isLoggedIn}
+								/>
+								{(isLoggedIn) && (pathlocation.pathname==="/") // Only show for logged in users on MyNames Page
+									?
+										<AddNameModal/>	
+									:
+										<></>
+								}
+							</Header>
+							<Main>
+								<Switch>
+									<Route exact path="/login" component={Login}></Route>
+									<Route exact path="/signup" component={Signup}></Route>
+									{isLoggedIn
+										?
+											<>
+												<Route exact path="/" component={MyNames}></Route>
+												<Route exact path="/login" component={Login}></Route>
+												<Route exact path="/signup" component={Signup}></Route>
+												<Route exact path="/ournames" component={OurNames}></Route>
+												<Route exact path="/build" component={Build}></Route>
+												<Route exact path="/browse" component={Browse}></Route>
+											</>
+										:
+											<>
+												<Route exact path="" component={Login}></Route>
+											</>
+									}
+								</Switch>
+							</Main>
+							<Footer>
+								{isLoggedIn
+									?
+										<Nav/>
+									:
+										<></>
+								}
+							</Footer>
+						</MyNamesContext.Provider> 
 					</CurrentUserContext.Provider>
-				</Router>
+				</>
 			);
 	}
 
