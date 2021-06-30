@@ -2,7 +2,7 @@
 /*                             Import Dependencies                            */
 /* -------------------------------------------------------------------------- */
 
-	import React, { useContext, useEffect, useState } from 'react';
+	import React, { useEffect, useState } from 'react';
 	import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 	import API from './utils/API';
 	import CurrentUserContext from './utils/CurrentUserContext';
@@ -138,14 +138,12 @@
 							</Switch>
 						</Main>
 						<Footer>
-							{!isLoggedIn
+							{isLoggedIn
 								?
-									<></>
+									<Nav/>
 								:
-									<Nav
-										currentUser={currentUser}
-									/>
-								}
+									<></>
+							}
 						</Footer>
 					</CurrentUserContext.Provider>
 				</Router>

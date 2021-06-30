@@ -15,11 +15,10 @@
 
     function AddNameModal() {
 
-        /* ------------------------------- Get Context ------------------------------ */
+        /* ------------------------------- Context ---------------------------------- */
 
             // Get provided information about the current user and associated data
             const currentUserContext = useContext(CurrentUserContext);
-                console.log('current user on add name modal from current user context is', currentUserContext);
 
         /* ---------------------------------- State --------------------------------- */
 

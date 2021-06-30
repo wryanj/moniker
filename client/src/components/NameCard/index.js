@@ -63,7 +63,7 @@
 
                         {/*Liked Name*/}
                         <div className="px-2 w-75 fw-bold text-center fs-5">
-                            Name
+                            {props.name}
                         </div>
 
                         {/*Promote Button*/}
