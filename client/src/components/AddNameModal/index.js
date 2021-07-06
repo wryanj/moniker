@@ -58,7 +58,8 @@
                         gender: NameGender.current.value,
                         type: NameType.current.value,
                         user_rank: 1, // hard coded until I figure out how to use
-                        family_rank: 1 // hard coded until I figure out how to use
+                        family_rank: 1, // hard coded until I figure out how to use
+                        is_visible: true
                     };
 
                 // If the required inputs are there, add the name to the db & update the state

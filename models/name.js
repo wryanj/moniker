@@ -54,6 +54,10 @@
                 family_rank: {
                     type:DataTypes.INTEGER,
                     allowNull:true
+                },
+                is_visible: {
+                    type:DataTypes.BOOLEAN,
+                    allowNull:false
                 }
             },
             {

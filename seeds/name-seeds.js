@@ -19,7 +19,8 @@
             gender: 'female',
             type: 'first',
             user_rank: 1,
-            family_rank:1
+            family_rank:1,
+            is_visible: true
         },
 
         // Name 2
@@ -31,7 +32,8 @@
             gender: 'female',
             type: 'first',
             user_rank: 1,
-            family_rank: 2
+            family_rank: 2,
+            is_visible: true
         },
 
         // Name 3
@@ -43,7 +45,8 @@
             gender: 'female',
             type: 'middle',
             user_rank: 2,
-            family_rank: 3
+            family_rank: 3,
+            is_visible: true
         },
 
          // Name 4
@@ -55,7 +58,8 @@
             gender: 'female',
             type: 'full',
             user_rank: 1,
-            family_rank: 1
+            family_rank: 1,
+            is_visible: true
         },
 
         // Name 5
@@ -67,7 +71,8 @@
             gender: 'female',
             type: 'full',
             user_rank: 2,
-            family_rank: 2
+            family_rank: 2,
+            is_visible: true
         }
 
     ];

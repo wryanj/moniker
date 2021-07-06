@@ -16,6 +16,7 @@
 
             // Users liked names
             const {myNames, setMyNames} = useContext(MyNamesContext);
+                console.log('myNames context on render is set to', myNames);
 
         /* ---------------------------------- State --------------------------------- */
 
@@ -26,14 +27,18 @@
 
             /*
                 Any time state changes, dom is re-rendered (so NameTypeFilter is re-rendered any time
-                the state above changes between true or fales. Use effect can be used so that a specified
+                the state above changes between true or false). Use effect can be used so that a specified
                 function (in this case my filter logic) will run every time this component re-renders, which
                 will be any time that state used on this component changes
+
+                The second argument in brackets is to avoid an infinite loop of component re-rendering. It is saying
+                to run filter names after the first render, and then ONLY if the specified state in brackets changes 
+                again. Without this additional argument, the useEffect here will loop forever basically. 
             */
 
             useEffect(() => {
-                filterNames()
-            });
+                filterNames();
+            }, [isAllShowing, isMiddleShowing, isFirstShowing, isFullShowing]);
 
             
 
@@ -94,6 +99,7 @@
                 filteredNames = myNames.filter(function(name) {
                     return (name.type==="first")
                 });
+                setMyNames(filteredNames);
                     console.log('---EXECUTE FIRST BLOCK---')
                     console.log('filtered names set to', filteredNames)
                     console.log('is All showing - ', isAllShowing);
@@ -105,12 +111,13 @@
                 filteredNames = myNames.filter(function(name) {
                     return (name.type==="middle")
                 });
-                    console.log('----EXECUTE MIDDLE BLOCK---')
-                    console.log('filtered names set to', filteredNames)
-                    console.log('is All showing - ', isAllShowing);
-                    console.log('is first showing - ', isFirstShowing);
-                    console.log('is middle showing - ', isMiddleShowing);
-                    console.log('is full showing - ', isFullShowing);
+                setMyNames(filteredNames);
+                    // console.log('----EXECUTE MIDDLE BLOCK---')
+                    // console.log('filtered names set to', filteredNames)
+                    // console.log('is All showing - ', isAllShowing);
+                    // console.log('is first showing - ', isFirstShowing);
+                    // console.log('is middle showing - ', isMiddleShowing);
+                    // console.log('is full showing - ', isFullShowing);
             }
             // Implied else if isFullShowing
             else {
