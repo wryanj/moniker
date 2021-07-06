@@ -48,7 +48,7 @@
                   },
                   {
                     model: Name,
-                    attributes: ["id", "name", "gender", "type", "user_rank"],
+                    attributes: ["id", "name", "gender", "type", "user_rank", "is_visible"],
                     as: 'userLikedNames'
                   }
                 ]

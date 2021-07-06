@@ -38,6 +38,7 @@
 
             useEffect(() => {
                 filterNames();
+            // eslint-disable-next-line react-hooks/exhaustive-deps
             }, [isAllShowing, isMiddleShowing, isFirstShowing, isFullShowing]);
 
             
@@ -77,8 +78,15 @@
                 setisMiddleShowing(false);
                 setisFullShowing(true);
             }
+    
+        /*
+            Filter logic - update state with an array of the same names, 
+            except change their is_visible property based on selected filter. 
+            Then, add this as a conditional when rendering from the myNames
+            container
+        */
 
-        // Filter myNames State by updating is_visible property of name objects in state array (used in namecard container for conditional render)
+        // Update is_visible property of all myNames based on user selected filter
         function filterNames () {
 
             // Declare variable to hold value of filtered names
@@ -101,14 +109,13 @@
                         name.is_visible=true
                         return name
                     }
-                    else{
+                    else {
                         name.is_visible=false
                         return name;
                     }
                 });
                 console.log('filtered names array after filter map function for FIRST is', filteredNames);
                 setMyNames(filteredNames);
-               
             }
 
             // If middle...
@@ -118,7 +125,7 @@
                         name.is_visible=true
                         return name
                     }
-                    else{
+                    else {
                         name.is_visible=false
                         return name;
                     }
@@ -126,14 +133,15 @@
                 console.log('filtered names array after filter map function for MIDDLE is', filteredNames);
                 setMyNames(filteredNames);
             }
-            // If full... (implied)
+
+            // If full...(implied as all other types are specified in above conditionals)
             else {
                 filteredNames = myNames.map((name) => {
                     if (name.type==='full') {
                         name.is_visible=true
                         return name
                     }
-                    else{
+                    else {
                         name.is_visible=false
                         return name;
                     }
