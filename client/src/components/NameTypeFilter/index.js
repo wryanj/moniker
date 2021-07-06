@@ -78,58 +78,68 @@
                 setisFullShowing(true);
             }
 
-        // Filter myNames State
+        // Filter myNames State by updating is_visible property of name objects in state array (used in namecard container for conditional render)
         function filterNames () {
 
             // Declare variable to hold value of filtered names
             let filteredNames;
 
+            // If all...
             if (isAllShowing===true) {
-                filteredNames = myNames.filter(function(name) {
-                    return (name.type==="first" || "middle" || "full")
-                })
-                    console.log('----EXECUTE ALL BLOCK---')
-                    console.log('filtered names set to', filteredNames)
-                    console.log('is All showing - ', isAllShowing);
-                    console.log('is first showing - ', isFirstShowing);
-                    console.log('is middle showing - ', isMiddleShowing);
-                    console.log('is full showing - ', isFullShowing);
+                filteredNames = myNames.map((name) => {
+                    name.is_visible=true
+                    return name
+                });
+                console.log('filtered names array after filter map function for ALL is', filteredNames);
+                setMyNames(filteredNames);
             }
+
+            // If first...
             else if (isFirstShowing===true) {
-                filteredNames = myNames.filter(function(name) {
-                    return (name.type==="first")
+                filteredNames = myNames.map((name) => {
+                    if (name.type==='first') {
+                        name.is_visible=true
+                        return name
+                    }
+                    else{
+                        name.is_visible=false
+                        return name;
+                    }
                 });
+                console.log('filtered names array after filter map function for FIRST is', filteredNames);
                 setMyNames(filteredNames);
-                    console.log('---EXECUTE FIRST BLOCK---')
-                    console.log('filtered names set to', filteredNames)
-                    console.log('is All showing - ', isAllShowing);
-                    console.log('is first showing - ', isFirstShowing);
-                    console.log('is middle showing - ', isMiddleShowing);
-                    console.log('is full showing - ', isFullShowing);
+               
             }
+
+            // If middle...
             else if (isMiddleShowing===true) {
-                filteredNames = myNames.filter(function(name) {
-                    return (name.type==="middle")
+                filteredNames = myNames.map((name) => {
+                    if (name.type==='middle') {
+                        name.is_visible=true
+                        return name
+                    }
+                    else{
+                        name.is_visible=false
+                        return name;
+                    }
                 });
+                console.log('filtered names array after filter map function for MIDDLE is', filteredNames);
                 setMyNames(filteredNames);
-                    // console.log('----EXECUTE MIDDLE BLOCK---')
-                    // console.log('filtered names set to', filteredNames)
-                    // console.log('is All showing - ', isAllShowing);
-                    // console.log('is first showing - ', isFirstShowing);
-                    // console.log('is middle showing - ', isMiddleShowing);
-                    // console.log('is full showing - ', isFullShowing);
             }
-            // Implied else if isFullShowing
+            // If full... (implied)
             else {
-                filteredNames = myNames.filter(function(name) {
-                    return (name.type==="full")
+                filteredNames = myNames.map((name) => {
+                    if (name.type==='full') {
+                        name.is_visible=true
+                        return name
+                    }
+                    else{
+                        name.is_visible=false
+                        return name;
+                    }
                 });
-                    console.log('----EXECUTE FULL BLOCK---')
-                    console.log('filtered names set to', filteredNames)
-                    console.log('is All showing - ', isAllShowing);
-                    console.log('is first showing - ', isFirstShowing);
-                    console.log('is middle showing - ', isMiddleShowing);
-                    console.log('is full showing - ', isFullShowing);
+                console.log('filtered names array after filter map function for FULL is', filteredNames);
+                setMyNames(filteredNames);
             }
         }
 
