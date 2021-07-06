@@ -21,6 +21,10 @@
         // Get context specifically for the current Users's Liked Names (this context may be changed here, or from other parts of the app using setMyNames)
         const {myNames, setMyNames} = useContext(MyNamesContext);
 
+    /* ---------------------------------- Logic --------------------------------- */
+
+        
+
     /* ---------------------------------- Render Controls ----------------------- */
         /*
             Due to react the first render of things has undefined values for context
@@ -50,7 +54,9 @@
 
                 // Else if length is not zero (there are liked names with that user)...
                 else {
+                    console.log('myNames in map', myNames);
                     return (
+                        
                         myNames.map((name => {
                             return (
                                 <NameCard

@@ -3,7 +3,6 @@
 /* -------------------------------------------------------------------------- */
 
     import React, { useContext, useEffect, useState } from "react"; 
-    import {useLocation} from 'react-router-dom';
     import CurrentUserContext from "../../utils/CurrentUserContext";
     import MyNamesContext from "../../utils/MyNamesContext";
     import {Modal,Button} from "react-bootstrap";
@@ -62,12 +61,13 @@
                         family_rank: 1 // hard coded until I figure out how to use
                     };
 
-                // If the required inputs are there, add the name to the db
+                // If the required inputs are there, add the name to the db & update the state
                 if (newName.name !=="" && newName.type!=null && newName.gender !=null) {
                     API.createNewName(newName)
                         .then(alert('New Name Added!'))
                         .then(closeModal)
                         .then(window.location.reload())
+                        .then(console.log('new state is', myNames))
                         .catch(err => {
                             console.log(err);
                             alert('Oops! We were not able to add this name!');

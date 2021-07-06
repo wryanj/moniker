@@ -39,18 +39,19 @@
 			const [myNames, setMyNames] = useState([]);
 
 			// Establish a path location to reference in conditoinal rendering below
-			const pathlocation=useLocation();
+			const pathlocation = useLocation();
 
 		/* --------------------------------- Effect --------------------------------- */
 
 			// Call withAuth when components have loaded
 			useEffect(() => {
 				withAuth();
+			// eslint-disable-next-line react-hooks/exhaustive-deps
 			}, [false])
 			
 			// Call get current users when components have loaded
 			useEffect(() => {
-				getCurrentUser();
+					getCurrentUser();
 			}, [])
 
 		/* ---------------------------------- Logic --------------------------------- */
@@ -76,20 +77,21 @@
 
 			// Handle Setting & Getting Current User
 			function getCurrentUser() {
-
+			
 				// Call the api get current user method..
 				API.getCurrentUser()
 
-					// then set the current user state to the currente user alaong with their liked names
-					.then(res => {
-						setCurrentUser(res.data);
-						setMyNames(res.data.userLikedNames);
-				  	})
+				// then set the current user state to the currente user alaong with their liked names
+				.then(res => {
+					setCurrentUser(res.data);
+					setMyNames(res.data.userLikedNames);
+				})
 
-					// If error log error
-				 	.catch(error => {
-						console.log(error);
-				 	});
+				// If error log error
+				.catch(error => {
+					console.log(error);
+				});
+				
 			};
 			
 			// Handle Log out
@@ -99,7 +101,7 @@
 				API.logout()
 
 					// Then when a response is received, set logged in state back to false
-					.then(response => {
+					.then(() => {
 						setLoggedIn({ loggedIn: false });
 					})
 
