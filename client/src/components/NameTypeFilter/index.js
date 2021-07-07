@@ -82,8 +82,8 @@
         /*
             Filter logic - update state with an array of the same names, 
             except change their is_visible property based on selected filter. 
-            Then, add this as a conditional when rendering from the myNames
-            container
+            Then, use this as a conditional for rendering name cards on the name 
+            card container.
         */
 
         // Update is_visible property of all myNames based on user selected filter
@@ -98,7 +98,6 @@
                     name.is_visible=true
                     return name
                 });
-                console.log('filtered names array after filter map function for ALL is', filteredNames);
                 setMyNames(filteredNames);
             }
 
@@ -114,7 +113,6 @@
                         return name;
                     }
                 });
-                console.log('filtered names array after filter map function for FIRST is', filteredNames);
                 setMyNames(filteredNames);
             }
 
@@ -130,7 +128,6 @@
                         return name;
                     }
                 });
-                console.log('filtered names array after filter map function for MIDDLE is', filteredNames);
                 setMyNames(filteredNames);
             }
 
@@ -146,7 +143,6 @@
                         return name;
                     }
                 });
-                console.log('filtered names array after filter map function for FULL is', filteredNames);
                 setMyNames(filteredNames);
             }
         }
