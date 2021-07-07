@@ -2,7 +2,8 @@
 /*                             Import Dependencies                            */
 /* -------------------------------------------------------------------------- */
 
-    import React, { useEffect, useState } from "react";
+    import React, { useContext, useEffect, useState } from "react";
+    import MyNamesContext from "../../utils/MyNamesContext";
     import Container from "../../components/Container";
     import Row from "../../components/Row";
     import Col from "../../components/Column";
@@ -16,6 +17,19 @@
 /* -------------------------------------------------------------------------- */
 
     function Build() {
+
+    /* --------------------------------- Context -------------------------------- */
+        
+        // Get the current users's liked names (myNames) as context
+        const {myNames} = useContext(MyNamesContext);
+
+    /* ---------------------------------- Logic --------------------------------- */
+
+        // Pull firsnames out of myNames to pass as props to firstname carosel
+        let firstnames = myNames.filter(name => name.type==="first");
+
+        // Pull middlenames out of myNames to pass as props to middlename carosel
+        let middlenames = myNames.filter(name => name.type==="middle");
 
     /* ---------------------------- Component Render ---------------------------- */
     
@@ -51,6 +65,7 @@
                     <Col>
                         <BuildNameCarousel
                             carouselId = "firstnameCarousel"
+                            names = {firstnames}
                         />
                     </Col>
                 </Row>
@@ -63,6 +78,7 @@
                     <Col>
                         <BuildNameCarousel
                             carouselId = "middlenameCarousel"
+                            names = {middlenames}
                         />
                     </Col>
                 </Row>
